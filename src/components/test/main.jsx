@@ -1,9 +1,8 @@
+import { Header } from './header'
+import { Card } from './card'
+import { SelectsHeader } from './selectsHeader'
 
-const Header = require('./header')
-const Card = require('./card')
-const SelectsHeader = require('./selectsHeader')
-
-module.exports = () =>(
+export const Main = () =>(
     <div>
         <Header />
         <Card objectList={SelectsHeader}/>

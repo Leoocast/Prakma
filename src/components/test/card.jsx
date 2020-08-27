@@ -1,9 +1,8 @@
-
 const styles = {
     margin: "10px"
 }
 
-module.exports.Card = ({objectList}) => (
+export const Card = ({objectList}) => (
     <div className="card" style={styles}>
         <div className="card-body">
             <div className="row">

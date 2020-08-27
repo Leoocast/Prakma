@@ -53,10 +53,10 @@
 
 	"use strict";
 
-	var Main = __webpack_require__(3);
+	var _main = __webpack_require__(3);
 
 	var app = document.getElementById('appTest');
-	app.appendChild(Main());
+	app.appendChild((0, _main.Main)());
 
 /***/ }),
 /* 2 */,
@@ -65,17 +65,22 @@
 
 	"use strict";
 
-	var Header = __webpack_require__(4);
+	exports.__esModule = true;
+	exports.Main = void 0;
 
-	var Card = __webpack_require__(6);
+	var _header = __webpack_require__(4);
 
-	var SelectsHeader = __webpack_require__(7);
+	var _card = __webpack_require__(6);
 
-	module.exports = function () {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(Card, {
-	    objectList: SelectsHeader
+	var _selectsHeader = __webpack_require__(7);
+
+	var Main = function Main() {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_header.Header, null), /*#__PURE__*/React.createElement(_card.Card, {
+	    objectList: _selectsHeader.SelectsHeader
 	  }));
 	};
+
+	exports.Main = Main;
 
 /***/ }),
 /* 4 */
@@ -83,11 +88,16 @@
 
 	"use strict";
 
-	var Navbar = __webpack_require__(5);
+	exports.__esModule = true;
+	exports.Header = void 0;
 
-	module.exports.Header = function () {
-	  return /*#__PURE__*/React.createElement(Navbar, null);
+	var _navbar = __webpack_require__(5);
+
+	var Header = function Header() {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_navbar.Navbar, null));
 	};
+
+	exports.Header = Header;
 
 /***/ }),
 /* 5 */
@@ -95,7 +105,10 @@
 
 	"use strict";
 
-	module.exports.Navbar = function () {
+	exports.__esModule = true;
+	exports.Navbar = void 0;
+
+	var Navbar = function Navbar() {
 	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("nav", {
 	    className: "navbar navbar-expand-lg navbar-dark bg-dark"
 	  }, /*#__PURE__*/React.createElement("div", {
@@ -116,17 +129,21 @@
 	  })))));
 	};
 
+	exports.Navbar = Navbar;
+
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
 	"use strict";
 
+	exports.__esModule = true;
+	exports.Card = void 0;
 	var styles = {
 	  margin: "10px"
 	};
 
-	module.exports.Card = function (_ref) {
+	var Card = function Card(_ref) {
 	  var objectList = _ref.objectList;
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "card",
@@ -140,6 +157,8 @@
 	  }))));
 	};
 
+	exports.Card = Card;
+
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -147,6 +166,9 @@
 	"use strict";
 
 	var _interopRequireDefault = __webpack_require__(8);
+
+	exports.__esModule = true;
+	exports.SelectsHeader = void 0;
 
 	var _regenerator = _interopRequireDefault(__webpack_require__(9));
 
@@ -254,14 +276,20 @@
 	          case 5:
 	            result = _context.sent;
 	            ddlCliente = document.getElementById('ddlCliente');
+	            ddlCliente.options.length = 1;
 	            if (id == 1) result.forEach(function (item) {
 	              var option = document.createElement('option');
 	              option.value = item.id;
 	              option.text = item.title;
 	              ddlCliente.add(option);
+	            });else Clientes.forEach(function (item) {
+	              var option = document.createElement('option');
+	              option.value = item.value;
+	              option.text = item.text;
+	              ddlCliente.add(option);
 	            });
 
-	          case 8:
+	          case 9:
 	          case "end":
 	            return _context.stop();
 	        }
@@ -274,7 +302,7 @@
 	  };
 	}();
 
-	module.exports = [/*#__PURE__*/React.createElement(Select, {
+	var SelectsHeader = [/*#__PURE__*/React.createElement(Select, {
 	  id: "dllMes",
 	  col: "col-md-2",
 	  tipo: "mes",
@@ -306,6 +334,7 @@
 	}, /*#__PURE__*/React.createElement("button", {
 	  className: "btn btn-primary "
 	}, "Buscar"))];
+	exports.SelectsHeader = SelectsHeader;
 
 /***/ }),
 /* 8 */
@@ -1128,7 +1157,10 @@
 
 	"use strict";
 
-	module.exports.Select = function (_ref) {
+	exports.__esModule = true;
+	exports.Select = void 0;
+
+	var Select = function Select(_ref) {
 	  var id = _ref.id,
 	      col = _ref.col,
 	      tipo = _ref.tipo,
@@ -1142,13 +1174,16 @@
 	    className: "form-select",
 	    "aria-label": "Default select example"
 	  }, /*#__PURE__*/React.createElement("option", {
-	    selected: true
+	    selected: true,
+	    disabled: true
 	  }, "Seleccione ", tipo), opciones.length > 0 ? opciones.map(function (r) {
 	    return /*#__PURE__*/React.createElement("option", {
 	      value: r.value
 	    }, r.text);
 	  }) : ''));
 	};
+
+	exports.Select = Select;
 
 /***/ })
 /******/ ]);

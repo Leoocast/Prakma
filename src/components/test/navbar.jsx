@@ -1,4 +1,4 @@
-module.exports.Navbar = () => (
+export const Navbar = () => (
 <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">

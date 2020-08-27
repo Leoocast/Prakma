@@ -1,5 +1,7 @@
-const Navbar = require('./navbar')
+import { Navbar } from './navbar'
 
-module.exports.Header = () => (
-        <Navbar />
+export const Header = () => (
+    <div>
+        <Navbar/>
+    </div>
 )

@@ -1,11 +1,15 @@
 const React = {
     createElement: (tag, attrs, ...children) => {
         
-        //Los custom components serán funciones y se le pasan los atributos del papa al hijo
-        //uf, ta kbron, me costó esta
-        if (typeof tag === 'object') {
-            return Object.entries(tag)[0][1](attrs)
-        }
+        //Si es una función que solo trae HTML, pues retorna la función
+        if (typeof tag === 'function') { return tag(attrs) }
+
+        //Si el tag es object. O es un elemento, o es una función, entonces, o retornas o ejecutas
+        if (typeof tag === 'object') 
+            if(tag instanceof Element)
+                return tag
+            else
+                return Object.entries(tag)[1][1](attrs)
 
         //Los tags normales de html serán strings para crear html
         if (typeof tag === 'string') {
@@ -56,6 +60,7 @@ const React = {
                     }
                 } 
                 else {
+                    console.log(tag, element, attrs, children)
                     //Cualquier otra cosa que no sea un elemento html, string, number
                     console.log('not appendable', element)
                 }

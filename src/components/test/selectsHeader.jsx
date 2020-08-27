@@ -115,6 +115,8 @@ const grupoOnChange = async (e) => {
 
     const ddlCliente = document.getElementById('ddlCliente')
 
+    ddlCliente.options.length = 1
+
     if (id == 1) 
         result.forEach(item => {
             const option = document.createElement('option')
@@ -122,9 +124,16 @@ const grupoOnChange = async (e) => {
             option.text = item.title
             ddlCliente.add(option)
         })
+    else
+        Clientes.forEach(item => {
+            const option = document.createElement('option')
+            option.value = item.value
+            option.text = item.text
+            ddlCliente.add(option)
+        })
 }
 
-module.exports = [
+export const SelectsHeader = [
     <Select id="dllMes" col="col-md-2" tipo="mes" opciones={meses}/>,
     <Select id="ddlAnnio" col="col-md-2" tipo="año" opciones={annios}/>,
     <Select id="ddlOrganizacion" col="col-md-2" tipo="organización" opciones={organizaciones} onChangeHandler={orgOnChange}/>,
