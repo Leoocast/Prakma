@@ -6,8 +6,9 @@ module.exports = {
             // bundle1: glob.sync('../src/components/**.jsx'),
             // bundle2: ['./src/app.jsx']
             
-            bundle1: glob.sync('../src/components/test/**.jsx'),
-            bundle2: ['./src/appTest.jsx']
+            bundle1: glob.sync('../src/components/**.jsx'),
+            bundle2: ['./src/appTest.jsx'],
+            //bundle3: glob.sync('../src/components/tablas/**.js')
         },
     watch: true,
     output: {

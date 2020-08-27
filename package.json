@@ -9,6 +9,17 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
+    "datatables.net": "^1.10.21",
+    "datatables.net-buttons": "^1.6.3",
+    "datatables.net-dt": "^1.10.21",
+    "datatables.net-fixedcolumns": "^3.3.1",
+    "datatables.net-fixedheader": "^3.1.7",
+    "datatables.net-keytable": "^2.5.2",
+    "datatables.net-responsive": "^2.2.5",
+    "datatables.net-rowgroup": "^1.1.2",
+    "datatables.net-scroller": "^2.0.2",
+    "datatables.net-searchpanes": "^1.1.1",
+    "jquery": "^3.5.1",
     "react-hot-loader": "^4.12.21"
   },
   "devDependencies": {

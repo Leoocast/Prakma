@@ -1,4 +1,10 @@
-const Select = require('./select')
+import { Select } from './select'
+import { Table, TableSelect } from '../tablas/Tables'
+
+const onClickBuscar = (e) => {
+       
+    const tabla = new Table('tabla')
+}
 
 const meses = [
     {
@@ -140,6 +146,6 @@ export const SelectsHeader = [
     <Select id="ddlGrupoEmpresa" col="col-md-2" tipo="grupo empresa" opciones={{}} onChangeHandler={grupoOnChange}/>,
     <Select id="ddlCliente" col="col-md-3" tipo="cliente" opciones={{}}/>,
     <div className="col-md-1">
-        <button className="btn btn-primary ">Buscar</button>
+        <button className="btn btn-primary " onClick={onClickBuscar}>Buscar</button>
     </div>
 ]

@@ -1,6 +1,6 @@
 const React = {
     createElement: (tag, attrs, ...children) => {
-        
+
         //Si es una función que solo trae HTML, pues retorna la función
         if (typeof tag === 'function') { return tag(attrs) }
 
@@ -19,8 +19,11 @@ const React = {
 
             //Si es un botón, le seteamos el click
             if(tag === 'button')
-                if(attrs.onClick != undefined)
+                if(attrs.onClick != undefined){
+                    console.log(attrs.onClick)
                     element.addEventListener('click', attrs.onClick)
+
+                }
             
             //Si es un select, le seteamos el onChange
             if(tag === 'select')
