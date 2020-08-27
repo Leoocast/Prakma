@@ -61,13 +61,17 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/** @jsx Comp */const Header = __webpack_require__(3)
-	const Test = __webpack_require__(4)
+
+	const cambiarP = () => document.getElementById('cuerpo').innerHTML = "Cambiado :O"
+
+	const cambiarTexto = function () {
+	    this.innerHTML = "Wow"
+	}
 
 	module.exports = () =>(
 	    React.createElement("div", null, 
-	        React.createElement(Header, null), 
-	        React.createElement(Test, null), 
-	        React.createElement("p", null, "Este es el cuerpo asd")
+	        React.createElement(Header, {text: "Bienvenido", name: "Leo", actionButton1: cambiarP, actionButton2: cambiarTexto}), 
+	        React.createElement("p", {id: "cuerpo"}, "Este es el cuerpo asd")
 	    )
 	)
 
@@ -75,13 +79,17 @@
 /* 3 */
 /***/ (function(module, exports) {
 
-	/** @jsx Comp */module.exports.Header = () => React.createElement("h1", {className: "headline"}, "Estsde es el header bien verga")
+	/** @jsx Comp */const styles = {
+	    marginLeft: "15px"
+	}
 
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-	/** @jsx Comp */module.exports.test = () => React.createElement("div", null, "Que pedpp")
+	module.exports.Header = ({text, name, actionButton1, actionButton2}) => (
+	    React.createElement("div", null, 
+	        React.createElement("h1", {className: "headline"}, text, " ", name), 
+	        React.createElement("button", {onClick: actionButton1}, "Cambiar P"), 
+	        React.createElement("button", {style: styles, onClick: actionButton2}, "Cambia mi texto")
+	    )
+	)
 
 /***/ })
 /******/ ]);
