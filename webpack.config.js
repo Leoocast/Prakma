@@ -1,4 +1,5 @@
 const glob = require('glob')
+const webpack = require("webpack")
 
 module.exports = {
     entry: {
@@ -30,6 +31,13 @@ module.exports = {
               }
         ],
     },
+    //Esto es para producción, no poner en desarrollo porque tarda un chingo
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin({
+    //       include: /\.js$/,
+    //       minimize: true
+    //     })
+    //   ],
     resolve: {
         extensions: ['', '.js', '.jsx']
     }
