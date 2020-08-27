@@ -1,9 +1,9 @@
-const Header = () => <h1 className="prueba">Este es el header</h1>
+const Header = require('../src/components/header')
 
 const Main = () =>(
     <div>
         <Header />
-        <p>Este es el cuerpo</p>
+        <p>Este es el cuerpo holi</p>
     </div>
 )
 

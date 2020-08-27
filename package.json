@@ -11,11 +11,15 @@
     "@babel/core": "^7.11.4",
     "@babel/plugin-syntax-jsx": "^7.10.4",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
-    "@babel/preset-env": "^7.11.0"
+    "@babel/preset-env": "^7.11.0",
+    "jsx-loader": "^0.12.2",
+    "webpack": "^1.4.15",
+    "http-server": "^0.8.0"
   },
   "scripts": {
     "comp": "babel src/app.jsx --out-dir dist",
-    "w": "babel src/app.jsx --watch --out-dir dist"
+    "w": "babel src/app.jsx --watch --out-dir dist",
+    "build": "npx webpack --mode production"
   },
   "repository": {
     "type": "git",

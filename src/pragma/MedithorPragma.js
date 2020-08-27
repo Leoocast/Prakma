@@ -1,7 +1,8 @@
 function Comp(tag, attrs, ...children) {
     
     //Los custom components serán funciones
-    if (typeof tag === 'function') { return tag() }
+    if (typeof tag === 'object') 
+        return Object.entries(tag)[0][1]()
     
     //Los tags normales de html serán strings para crear html
     if (typeof tag === 'string') {
@@ -17,7 +18,7 @@ function Comp(tag, attrs, ...children) {
                 fragments.appendChild(textnode)
             } else {
                 //Cualquier otra cosa que no sea un elemento html o string
-                console.log('not appendable', child);
+                console.log('not appendable', element);
             }
         })
 
