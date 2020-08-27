@@ -1,5 +1,9 @@
 module.exports = {
-    entry: {bundle1:['./src/app.jsx','./src/components/header.jsx']},
+    entry: {
+        bundle1: [
+            './src/components/header.jsx',
+            './src/components/main.jsx',
+            './src/app.jsx']},
     watch: true,
     output: {
         path: './build',

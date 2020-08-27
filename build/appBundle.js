@@ -45,30 +45,37 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(2);
+	__webpack_require__(2);
+	module.exports = __webpack_require__(3);
 
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/** @jsx Comp */const Header = __webpack_require__(2)
-
-	const Main = () =>(
-	    React.createElement("div", null, 
-	        React.createElement(Header, null), 
-	        React.createElement("p", null, "Este es el cuerpo holi")
-	    )
-	)
-
-	const app = document.getElementById('app')
-	app.appendChild(Main())
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 	/** @jsx Comp */module.exports.Header = () => React.createElement("h1", {className: "headline"}, "Estsde es el header bien verga")
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/** @jsx Comp */const Header = __webpack_require__(1)
+
+	module.exports = () =>(
+	    React.createElement("div", null, 
+	        React.createElement(Header, null), 
+	        React.createElement("p", null, "Este es el cuerpo holxcsdoadmni")
+	    )
+	)
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/** @jsx Comp */const Main = __webpack_require__(2)
+
+	const app = document.getElementById('app')
+	app.appendChild(Main())
 
 /***/ })
 /******/ ]);
