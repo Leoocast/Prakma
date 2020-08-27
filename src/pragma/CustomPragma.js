@@ -21,10 +21,11 @@ const React = {
             //Verificando si vienen algunos estilos, es necesario el time out 
             //para que se cree primero el elemento, de otra manera se crea sin estilo después de dárselo        
             if(attrs != null)                    
-                if(attrs.style != undefined)
+                if(attrs.style != undefined){
                     setTimeout(() => {
                         Object.assign(element.style, attrs.style)
                     }, 0)
+                }
 
             children.forEach(child => {
                 if (child instanceof HTMLElement) { 
@@ -32,8 +33,25 @@ const React = {
                 } else if (typeof child === 'string'){
                     const textnode = document.createTextNode(child)
                     fragments.appendChild(textnode)
-                } else {
-                    //Cualquier otra cosa que no sea un elemento html o string
+                }
+                // Cuando retornas un número, o map de números
+                else if(typeof child === 'number'){ 
+                    const textnode = document.createTextNode(child)
+                    fragments.appendChild(textnode)
+                } 
+                //Hay que tener cuidado con este, siempre tratar de retornar elementos html
+                else if(typeof child === 'object'){ 
+                    try {
+                        child.forEach(r => fragments.appendChild(r))
+                    } catch (error) {
+                        child.forEach(r => {
+                            const textnode = document.createTextNode(child)
+                            fragments.appendChild(textnode)
+                        })
+                    }
+                } 
+                else {
+                    //Cualquier otra cosa que no sea un elemento html, string, number
                     console.log('not appendable', element)
                 }
             })

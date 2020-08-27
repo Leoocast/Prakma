@@ -21,7 +21,7 @@ module.exports = {
             {
                 test: /\.jsx$/,
                 loader: 'jsx-loader?insertPragma=Comp'
-            }
+            },
         ]
     },
     resolve: {

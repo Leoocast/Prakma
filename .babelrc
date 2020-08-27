@@ -1,7 +1,23 @@
+// {
+//     // "plugins": [
+//     //   "@babel/plugin-syntax-jsx",
+//     //   ["@babel/plugin-transform-react-jsx", { "pragma": "Comp" }]
+//     // ],
+//     // "presets": [["@babel/preset-env", { "modules": "commonjs" }]]
+// }
+
 {
-    "plugins": [
-      "@babel/plugin-syntax-jsx",
-      ["@babel/plugin-transform-react-jsx", { "pragma": "Comp" }]
-    ],
-    // "presets": [["@babel/preset-env", { "modules": "commonjs" }]]
+  "presets": [
+      [
+        "env",
+        {
+          "modules": false,
+          "loose": true
+        }
+      ],
+      "react"
+  ],
+  "plugins": [
+      "transform-object-rest-spread"
+  ]
 }
