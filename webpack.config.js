@@ -3,7 +3,7 @@ module.exports = {
     watch: true,
     output: {
         path: './build',
-        filename: "bundle.js",
+        filename: "appBundle.js",
         publicPath: 'http://localhost:8090/assets'
     },
     module: {

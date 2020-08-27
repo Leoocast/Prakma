@@ -1,1 +1,1 @@
-module.exports.Header = () => <h1 className="headline">Este es el header bien verga</h1>
+module.exports.Header = () => <h1 className="headline">Estsde es el header bien verga</h1>
