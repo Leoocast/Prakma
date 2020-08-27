@@ -19,10 +19,15 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.jsx$/,
-                loader: 'jsx-loader?insertPragma=Comp'
-            },
-        ]
+                test: /.jsx$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                  presets: ['@babel/react'],
+                  plugins: ['@babel/proposal-class-properties']
+                }
+              }
+        ],
     },
     resolve: {
         extensions: ['', '.js', '.jsx']

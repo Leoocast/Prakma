@@ -17,6 +17,11 @@ const React = {
             if(tag === 'button')
                 if(attrs.onClick != undefined)
                     element.addEventListener('click', attrs.onClick)
+            
+            //Si es un select, le seteamos el onChange
+            if(tag === 'select')
+                if(attrs.onChange != undefined)
+                    element.addEventListener('change', attrs.onChange)
 
             //Verificando si vienen algunos estilos, es necesario el time out 
             //para que se cree primero el elemento, de otra manera se crea sin estilo después de dárselo        

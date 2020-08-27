@@ -51,10 +51,25 @@ const meses = [
     },
 ]
 
+const annios = [
+    {
+        value: 1,
+        text: "2020"
+    },
+    {
+        value: 2,
+        text: "2019"
+    }
+]
+
 const organizaciones = [
     {
         value: 1,
-        text : "A3T"
+        text : "Clientes A3T"
+    },
+    {
+        value: 2,
+        text : "Thermion"
     }
 ]
 
@@ -76,9 +91,46 @@ const Clientes = [
     }
 ]
 
+const orgOnChange = (e) => {
+    const id = e.target.value
+
+    const ddlGrupo = document.getElementById('ddlGrupoEmpresa')
+
+    //Prueba de seleccionar A3T
+    if (id == 1) 
+        grupoEmpresas.forEach(grupo => {
+            const option = document.createElement('option')
+            option.value = grupo.value
+            option.text = grupo.text
+            ddlGrupo.add(option)
+        })
+}
+
+const grupoOnChange = async (e) => {
+    const id = e.target.value
+
+    if(id == 0) return
+
+    const result = await fetch('https://jsonplaceholder.typicode.com/albums').then(r => r.json())
+
+    const ddlCliente = document.getElementById('ddlCliente')
+
+    if (id == 1) 
+        result.forEach(item => {
+            const option = document.createElement('option')
+            option.value = item.id
+            option.text = item.title
+            ddlCliente.add(option)
+        })
+}
+
 module.exports = [
-    <Select tipo="mes" opciones={meses}/>,
-    <Select tipo="organización" opciones={organizaciones}/>,
-    <Select tipo="grupo empresa" opciones={grupoEmpresas}/>,
-    <Select tipo="cliente" opciones={Clientes}/>,
+    <Select id="dllMes" col="col-md-2" tipo="mes" opciones={meses}/>,
+    <Select id="ddlAnnio" col="col-md-2" tipo="año" opciones={annios}/>,
+    <Select id="ddlOrganizacion" col="col-md-2" tipo="organización" opciones={organizaciones} onChangeHandler={orgOnChange}/>,
+    <Select id="ddlGrupoEmpresa" col="col-md-2" tipo="grupo empresa" opciones={{}} onChangeHandler={grupoOnChange}/>,
+    <Select id="ddlCliente" col="col-md-3" tipo="cliente" opciones={{}}/>,
+    <div className="col-md-1">
+        <button className="btn btn-primary ">Buscar</button>
+    </div>
 ]

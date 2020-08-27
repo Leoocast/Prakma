@@ -1,14 +1,13 @@
+
 const styles = {
-    justifyContent : "space-around"
+    margin: "10px"
 }
 
 module.exports.Card = ({objectList}) => (
-    <div className="card">
+    <div className="card" style={styles}>
         <div className="card-body">
             <div className="row">
-                <div className="d-flex" style={styles}>
-                    {objectList.map(r => <div>{r}</div>)}
-                </div>
+                {objectList.map(r => r)}
             </div>
         </div>
     </div>
