@@ -1,0 +1,1 @@
+export const Header = () => <h1 className="headline">Este es el header</h1>

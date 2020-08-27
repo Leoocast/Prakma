@@ -1,0 +1,31 @@
+{
+  "name": "Pragma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-syntax-jsx": "^7.10.4",
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/preset-env": "^7.11.0"
+  },
+  "scripts": {
+    "comp": "babel src/app.jsx --out-dir dist",
+    "w": "babel src/app.jsx --watch --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leoocast/Pragma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leoocast/Pragma/issues"
+  },
+  "homepage": "https://github.com/Leoocast/Pragma#readme"
+}
