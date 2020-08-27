@@ -1,5 +1,4 @@
-const React = {
-    createElement: (tag, attrs, ...children) => {
+function X(tag, attrs, ...children) {
    
         //Si es una función que solo trae HTML, pues retorna la función
         if (typeof tag === 'function') { return tag(attrs) }
@@ -76,4 +75,3 @@ const React = {
             return element
         }
     }
-}

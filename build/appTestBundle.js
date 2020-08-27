@@ -69,16 +69,16 @@
 
 	var _header = __webpack_require__(3);
 
-	var _cards = __webpack_require__(28);
+	var _cards = __webpack_require__(5);
 
 	var _selectsHeader = __webpack_require__(6);
 
 	var tabla = ["Nombre", "Apellido", "Edad"];
 
 	var Main = function Main() {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_header.Header, null), /*#__PURE__*/React.createElement(_cards.Card, {
+	  return X("div", null, X(_header.Header, null), X(_cards.Card, {
 	    objectList: _selectsHeader.SelectsHeader
-	  }), /*#__PURE__*/React.createElement(_cards.CardTable, {
+	  }), X(_cards.CardTable, {
 	    idCard: "cardTabla",
 	    idTable: "tabla",
 	    arrayTd: tabla
@@ -99,7 +99,7 @@
 	var _navbar = __webpack_require__(4);
 
 	var Header = function Header() {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_navbar.Navbar, null));
+	  return X("div", null, X(_navbar.Navbar, null));
 	};
 
 	exports.Header = Header;
@@ -114,14 +114,14 @@
 	exports.Navbar = void 0;
 
 	var Navbar = function Navbar() {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("nav", {
+	  return X("div", null, X("nav", {
 	    className: "navbar navbar-expand-lg navbar-dark bg-dark"
-	  }, /*#__PURE__*/React.createElement("div", {
+	  }, X("div", {
 	    className: "container-fluid"
-	  }, /*#__PURE__*/React.createElement("a", {
+	  }, X("a", {
 	    className: "navbar-brand",
 	    href: "#"
-	  }, "Medithor JSX"), /*#__PURE__*/React.createElement("button", {
+	  }, "Medithor JSX"), X("button", {
 	    className: "navbar-toggler",
 	    type: "button",
 	    "data-toggle": "collapse",
@@ -129,7 +129,7 @@
 	    "aria-controls": "navbarSupportedContent",
 	    "aria-expanded": "false",
 	    "aria-label": "Toggle navigation"
-	  }, /*#__PURE__*/React.createElement("span", {
+	  }, X("span", {
 	    className: "navbar-toggler-icon"
 	  })))));
 	};
@@ -137,7 +137,60 @@
 	exports.Navbar = Navbar;
 
 /***/ }),
-/* 5 */,
+/* 5 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	exports.__esModule = true;
+	exports.CardTable = exports.Card = void 0;
+	var styles = {
+	  margin: "10px"
+	};
+	var stylesTabla = {
+	  display: "none",
+	  margin: "10px"
+	};
+
+	var Card = function Card(_ref) {
+	  var objectList = _ref.objectList;
+	  return X("div", {
+	    className: "card",
+	    style: styles
+	  }, X("div", {
+	    className: "card-body"
+	  }, X("div", {
+	    className: "row"
+	  }, objectList.map(function (r) {
+	    return r;
+	  }))));
+	};
+
+	exports.Card = Card;
+
+	var CardTable = function CardTable(_ref2) {
+	  var idCard = _ref2.idCard,
+	      idTable = _ref2.idTable,
+	      arrayTd = _ref2.arrayTd;
+	  return X("div", {
+	    id: idCard,
+	    className: "card",
+	    style: stylesTabla
+	  }, X("div", {
+	    className: "card-body"
+	  }, X("div", {
+	    className: "row"
+	  }, X("table", {
+	    id: idTable,
+	    className: "table table-striped"
+	  }, X("thead", null, X("tr", null, arrayTd.map(function (r) {
+	    return X("th", null, r);
+	  })))))));
+	};
+
+	exports.CardTable = CardTable;
+
+/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -290,36 +343,36 @@
 	  };
 	}();
 
-	var SelectsHeader = [/*#__PURE__*/React.createElement(_select.Select, {
+	var SelectsHeader = [X(_select.Select, {
 	  id: "dllMes",
 	  col: "col-md-2",
 	  tipo: "mes",
 	  opciones: meses
-	}), /*#__PURE__*/React.createElement(_select.Select, {
+	}), X(_select.Select, {
 	  id: "ddlAnnio",
 	  col: "col-md-2",
 	  tipo: "a\xF1o",
 	  opciones: annios
-	}), /*#__PURE__*/React.createElement(_select.Select, {
+	}), X(_select.Select, {
 	  id: "ddlOrganizacion",
 	  col: "col-md-2",
 	  tipo: "organizaci\xF3n",
 	  opciones: organizaciones,
 	  onChangeHandler: orgOnChange
-	}), /*#__PURE__*/React.createElement(_select.Select, {
+	}), X(_select.Select, {
 	  id: "ddlGrupoEmpresa",
 	  col: "col-md-2",
 	  tipo: "grupo empresa",
 	  opciones: {},
 	  onChangeHandler: grupoOnChange
-	}), /*#__PURE__*/React.createElement(_select.Select, {
+	}), X(_select.Select, {
 	  id: "ddlCliente",
 	  col: "col-md-3",
 	  tipo: "cliente",
 	  opciones: {}
-	}), /*#__PURE__*/React.createElement("div", {
+	}), X("div", {
 	  className: "col-md-1"
-	}, /*#__PURE__*/React.createElement("button", {
+	}, X("button", {
 	  className: "btn btn-primary ",
 	  onClick: onClickBuscar
 	}, "Buscar"))];
@@ -1155,18 +1208,18 @@
 	      tipo = _ref.tipo,
 	      opciones = _ref.opciones,
 	      onChangeHandler = _ref.onChangeHandler;
-	  return /*#__PURE__*/React.createElement("div", {
+	  return X("div", {
 	    className: col
-	  }, /*#__PURE__*/React.createElement("select", {
+	  }, X("select", {
 	    id: id,
 	    onChange: onChangeHandler,
 	    className: "form-select",
 	    "aria-label": "Default select example"
-	  }, /*#__PURE__*/React.createElement("option", {
+	  }, X("option", {
 	    selected: true,
 	    disabled: true
 	  }, "Seleccione ", tipo), opciones.length > 0 ? opciones.map(function (r) {
-	    return /*#__PURE__*/React.createElement("option", {
+	    return X("option", {
 	      value: r.value
 	    }, r.text);
 	  }) : ''));
@@ -56506,60 +56559,6 @@
 
 	}());
 
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-	exports.__esModule = true;
-	exports.CardTable = exports.Card = void 0;
-	var styles = {
-	  margin: "10px"
-	};
-	var stylesTabla = {
-	  display: "none",
-	  margin: "10px"
-	};
-
-	var Card = function Card(_ref) {
-	  var objectList = _ref.objectList;
-	  return /*#__PURE__*/React.createElement("div", {
-	    className: "card",
-	    style: styles
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "card-body"
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "row"
-	  }, objectList.map(function (r) {
-	    return r;
-	  }))));
-	};
-
-	exports.Card = Card;
-
-	var CardTable = function CardTable(_ref2) {
-	  var idCard = _ref2.idCard,
-	      idTable = _ref2.idTable,
-	      arrayTd = _ref2.arrayTd;
-	  return /*#__PURE__*/React.createElement("div", {
-	    id: idCard,
-	    className: "card",
-	    style: stylesTabla
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "card-body"
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "row"
-	  }, /*#__PURE__*/React.createElement("table", {
-	    id: idTable,
-	    className: "table table-striped"
-	  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, arrayTd.map(function (r) {
-	    return /*#__PURE__*/React.createElement("th", null, r);
-	  })))))));
-	};
-
-	exports.CardTable = CardTable;
 
 /***/ })
 /******/ ]);
