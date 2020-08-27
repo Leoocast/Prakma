@@ -1,8 +1,10 @@
 const Header = require('../components/header')
+const Test = require('../components/test')
 
 module.exports = () =>(
     <div>
         <Header />
-        <p>Este es el cuerpo holxcsdoadmni</p>
+        <Test />
+        <p>Este es el cuerpo asd</p>
     </div>
 )

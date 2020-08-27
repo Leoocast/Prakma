@@ -1,0 +1,1 @@
+module.exports.test = () => <div>Que pedpp</div>

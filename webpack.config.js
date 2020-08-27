@@ -1,9 +1,11 @@
+const glob = require('glob')
+
 module.exports = {
     entry: {
-        bundle1: [
-            './src/components/header.jsx',
-            './src/components/main.jsx',
-            './src/app.jsx']},
+        bundle1: glob.sync('../src/components/**.jsx'),
+        bundle2: ['./src/app.jsx']
+        },
+        
     watch: true,
     output: {
         path: './build',
