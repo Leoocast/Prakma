@@ -18,8 +18,8 @@
   },
   "scripts": {
     "comp": "babel src/app.jsx --out-dir dist",
-    "w": "babel src/app.jsx --watch --out-dir dist",
-    "build": "npx webpack --mode production"
+    "wBabel": "babel src/app.jsx --watch --out-dir dist",
+    "w": "npx webpack --mode production"
   },
   "repository": {
     "type": "git",

@@ -24,7 +24,7 @@ const React = {
                 if(attrs.style != undefined)
                     setTimeout(() => {
                         Object.assign(element.style, attrs.style)
-                    }, 0);
+                    }, 0)
 
             children.forEach(child => {
                 if (child instanceof HTMLElement) { 
@@ -34,7 +34,7 @@ const React = {
                     fragments.appendChild(textnode)
                 } else {
                     //Cualquier otra cosa que no sea un elemento html o string
-                    console.log('not appendable', element);
+                    console.log('not appendable', element)
                 }
             })
     

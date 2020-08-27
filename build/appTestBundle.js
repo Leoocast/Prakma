@@ -53,7 +53,7 @@
 
 	/** @jsx Comp */const Main = __webpack_require__(2)
 
-	const app = document.getElementById('app')
+	const app = document.getElementById('appTest')
 	app.appendChild(Main())
 
 /***/ }),

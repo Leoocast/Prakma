@@ -1,4 +1,4 @@
-const Header = require('../components/header')
+const Header = require('./header')
 
 const cambiarP = () => {
     const p = document.getElementById('cuerpo')
