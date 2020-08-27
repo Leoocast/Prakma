@@ -2,6 +2,11 @@ const styles = {
     margin: "10px"
 }
 
+const stylesTabla = {
+    display: "none",
+    margin: "10px"
+}
+
 export const Card = ({objectList}) => (
     <div className="card" style={styles}>
         <div className="card-body">
@@ -12,23 +17,16 @@ export const Card = ({objectList}) => (
     </div>
 )
 
-export const CardTable = ({id}) => (
-    <div className="card" style={styles}>
+export const CardTable = ({idCard,  idTable, arrayTd}) => (
+    <div id={idCard} className="card" style={stylesTabla}>
         <div className="card-body">
             <div className="row">
-                <table className="table" id={id}>
+                <table id={idTable} className="table table-striped">
                     <thead>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                    </thead>
-                    <tbody>
                         <tr>
-                            <td>10</td>
-                            <td>10</td>
-                            <td>10</td>
+                            {arrayTd.map(r => <th>{r}</th>)}
                         </tr>
-                    </tbody>
+                    </thead>
                 </table>
             </div>
         </div>

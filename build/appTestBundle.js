@@ -69,15 +69,19 @@
 
 	var _header = __webpack_require__(3);
 
-	var _card = __webpack_require__(5);
+	var _cards = __webpack_require__(28);
 
 	var _selectsHeader = __webpack_require__(6);
 
+	var tabla = ["Nombre", "Apellido", "Edad"];
+
 	var Main = function Main() {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_header.Header, null), /*#__PURE__*/React.createElement(_card.Card, {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_header.Header, null), /*#__PURE__*/React.createElement(_cards.Card, {
 	    objectList: _selectsHeader.SelectsHeader
-	  }), /*#__PURE__*/React.createElement(_card.CardTable, {
-	    id: "tabla"
+	  }), /*#__PURE__*/React.createElement(_cards.CardTable, {
+	    idCard: "cardTabla",
+	    idTable: "tabla",
+	    arrayTd: tabla
 	  }));
 	};
 
@@ -133,51 +137,7 @@
 	exports.Navbar = Navbar;
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-	exports.__esModule = true;
-	exports.CardTable = exports.Card = void 0;
-	var styles = {
-	  margin: "10px"
-	};
-
-	var Card = function Card(_ref) {
-	  var objectList = _ref.objectList;
-	  return /*#__PURE__*/React.createElement("div", {
-	    className: "card",
-	    style: styles
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "card-body"
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "row"
-	  }, objectList.map(function (r) {
-	    return r;
-	  }))));
-	};
-
-	exports.Card = Card;
-
-	var CardTable = function CardTable(_ref2) {
-	  var id = _ref2.id;
-	  return /*#__PURE__*/React.createElement("div", {
-	    className: "card",
-	    style: styles
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "card-body"
-	  }, /*#__PURE__*/React.createElement("div", {
-	    className: "row"
-	  }, /*#__PURE__*/React.createElement("table", {
-	    className: "table",
-	    id: id
-	  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("th", null, "1"), /*#__PURE__*/React.createElement("th", null, "2"), /*#__PURE__*/React.createElement("th", null, "3")), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, "10"), /*#__PURE__*/React.createElement("td", null, "10"), /*#__PURE__*/React.createElement("td", null, "10")))))));
-	};
-
-	exports.CardTable = CardTable;
-
-/***/ }),
+/* 5 */,
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -197,7 +157,11 @@
 	var _Tables = __webpack_require__(12);
 
 	var onClickBuscar = function onClickBuscar(e) {
-	  var tabla = new _Tables.Table('tabla');
+	  var tabla = new _Tables.Table('tabla', [["Jesus", "Pechuga", 28]]);
+	  var cardTabla = document.getElementById("cardTabla");
+	  cardTabla.style.display = "block";
+
+	  tabla._adjust();
 	};
 
 	var meses = [{
@@ -56542,6 +56506,60 @@
 
 	}());
 
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	exports.__esModule = true;
+	exports.CardTable = exports.Card = void 0;
+	var styles = {
+	  margin: "10px"
+	};
+	var stylesTabla = {
+	  display: "none",
+	  margin: "10px"
+	};
+
+	var Card = function Card(_ref) {
+	  var objectList = _ref.objectList;
+	  return /*#__PURE__*/React.createElement("div", {
+	    className: "card",
+	    style: styles
+	  }, /*#__PURE__*/React.createElement("div", {
+	    className: "card-body"
+	  }, /*#__PURE__*/React.createElement("div", {
+	    className: "row"
+	  }, objectList.map(function (r) {
+	    return r;
+	  }))));
+	};
+
+	exports.Card = Card;
+
+	var CardTable = function CardTable(_ref2) {
+	  var idCard = _ref2.idCard,
+	      idTable = _ref2.idTable,
+	      arrayTd = _ref2.arrayTd;
+	  return /*#__PURE__*/React.createElement("div", {
+	    id: idCard,
+	    className: "card",
+	    style: stylesTabla
+	  }, /*#__PURE__*/React.createElement("div", {
+	    className: "card-body"
+	  }, /*#__PURE__*/React.createElement("div", {
+	    className: "row"
+	  }, /*#__PURE__*/React.createElement("table", {
+	    id: idTable,
+	    className: "table table-striped"
+	  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, arrayTd.map(function (r) {
+	    return /*#__PURE__*/React.createElement("th", null, r);
+	  })))))));
+	};
+
+	exports.CardTable = CardTable;
 
 /***/ })
 /******/ ]);

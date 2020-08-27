@@ -2,8 +2,14 @@ import { Select } from './select'
 import { Table, TableSelect } from '../tablas/Tables'
 
 const onClickBuscar = (e) => {
-       
-    const tabla = new Table('tabla')
+    const tabla = new Table('tabla', [["Jesus", "Pechuga", 28]])
+
+    const cardTabla = document.getElementById("cardTabla")
+
+    cardTabla.style.display = "block"
+
+    tabla._adjust()
+
 }
 
 const meses = [

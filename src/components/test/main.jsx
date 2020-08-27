@@ -1,11 +1,13 @@
 import { Header } from './header'
-import { Card, CardTable } from './card'
+import { Card, CardTable } from './cards'
 import { SelectsHeader } from './selectsHeader'
+
+const tabla = ["Nombre", "Apellido", "Edad"]
 
 export const Main = () =>(
     <div>
         <Header />
         <Card objectList={SelectsHeader}/>
-        <CardTable id="tabla"/>
+        <CardTable idCard="cardTabla" idTable="tabla" arrayTd={tabla} />
     </div>
 )
