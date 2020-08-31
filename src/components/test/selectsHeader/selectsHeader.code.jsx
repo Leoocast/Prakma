@@ -1,7 +1,6 @@
-import { Select } from './select'
-import { Table, TableSelect } from '../tablas/Tables'
+import { Table, TableSelect } from '../../tablas/Tables'
 
-const onClickBuscar = (e) => {
+export const onClickBuscar = (e) => {
     const tabla = new Table('tabla', [["Jesus", "Pechuga", 28]])
 
     const cardTabla = document.getElementById("cardTabla")
@@ -12,7 +11,7 @@ const onClickBuscar = (e) => {
 
 }
 
-const meses = [
+export const meses = [
     {
         value : 1,
         text : "Enero"
@@ -63,7 +62,7 @@ const meses = [
     },
 ]
 
-const annios = [
+export const annios = [
     {
         value: 1,
         text: "2020"
@@ -74,7 +73,7 @@ const annios = [
     }
 ]
 
-const organizaciones = [
+export const organizaciones = [
     {
         value: 1,
         text : "Clientes A3T"
@@ -85,7 +84,7 @@ const organizaciones = [
     }
 ]
 
-const grupoEmpresas = [
+export const grupoEmpresas = [
     {
         value: 1,
         text : "Grupo Alsea"
@@ -96,14 +95,14 @@ const grupoEmpresas = [
     }
 ]
 
-const Clientes = [
+export const Clientes = [
     {
         value: 1,
         text : "Prueba"
     }
 ]
 
-const orgOnChange = (e) => {
+export const orgOnChange = (e) => {
     const id = e.target.value
 
     const ddlGrupo = document.getElementById('ddlGrupoEmpresa')
@@ -118,7 +117,7 @@ const orgOnChange = (e) => {
         })
 }
 
-const grupoOnChange = async (e) => {
+export const grupoOnChange = async (e) => {
     const id = e.target.value
 
     if(id == 0) return
@@ -144,14 +143,3 @@ const grupoOnChange = async (e) => {
             ddlCliente.add(option)
         })
 }
-
-export const SelectsHeader = [
-    <Select id="dllMes" col="col-md-2" tipo="mes" opciones={meses}/>,
-    <Select id="ddlAnnio" col="col-md-2" tipo="año" opciones={annios}/>,
-    <Select id="ddlOrganizacion" col="col-md-2" tipo="organización" opciones={organizaciones} onChangeHandler={orgOnChange}/>,
-    <Select id="ddlGrupoEmpresa" col="col-md-2" tipo="grupo empresa" opciones={{}} onChangeHandler={grupoOnChange}/>,
-    <Select id="ddlCliente" col="col-md-3" tipo="cliente" opciones={{}}/>,
-    <div className="col-md-1">
-        <button className="btn btn-primary " onClick={onClickBuscar}>Buscar</button>
-    </div>
-]

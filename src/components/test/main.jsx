@@ -1,6 +1,6 @@
 import { Header } from './header'
 import { Card, CardTable } from './cards'
-import { SelectsHeader } from './selectsHeader'
+import { SelectsHeader } from './selectsHeader/selectsHeader.component'
 
 const tabla = ["Nombre", "Apellido", "Edad"]
 

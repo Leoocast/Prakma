@@ -34,7 +34,8 @@
     "http-server": "^0.8.0",
     "jsx-loader": "^0.12.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^1.4.15"
+    "webpack": "^1.4.15",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "comp": "babel src/app.jsx --out-dir dist",
