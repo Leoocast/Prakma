@@ -33,7 +33,7 @@
     "html-webpack-plugin": "^2.30.1",
     "path": "^0.12.7",
     "uglifyjs-webpack-plugin": "^1.0.1",
-    "webpack": "^4.0.0",
+    "webpack": "^4.44.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.1"
   },
@@ -41,9 +41,7 @@
     "babel-core": "6.x || ^7.0.0-bridge.0"
   },
   "scripts": {
-    "comp": "babel src/app.jsx --out-dir dist",
-    "wBabel": "babel src/app.jsx --watch --out-dir dist",
-    "w": "npx webpack --mode production"
+    "w": "npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",

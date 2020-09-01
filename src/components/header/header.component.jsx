@@ -1,4 +1,4 @@
-import { Navbar } from './navbar'
+import { Navbar } from '../navbar/navbar.component'
 
 export const Header = () => (
     <div>

@@ -1,4 +1,0 @@
-npm install --save-dev @babel/core @babel/preset-env @babel/cli @babel/plugin-syntax-jsx @babel/plugin-transform-react-jsx
-
-Scripts:
-  "comp": "babel src/app.jsx --out-dir dist"

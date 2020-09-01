@@ -1,5 +1,4 @@
-import { Table, TableSelect } from '../../tablas/Tables'
-
+import { Table, TableSelect } from '../../../../components/tables/tables.component'
 
 export const onClickBuscar = (e) => {
     const tabla = new Table('tabla', [["Jesus", "Pechuga", 28]])

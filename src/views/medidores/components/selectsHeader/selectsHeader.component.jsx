@@ -1,6 +1,7 @@
-import { Select } from '../select'
 import * as code from './selectsHeader.code'
-import './style.sass'
+import './selectsHeader.style.sass'
+
+import { Select } from '../select/select.component'
 
 export const SelectsHeader = [
     <Select id="dllMes" col="col-md-2 test" tipo="mes" opciones={code.meses}/>,
