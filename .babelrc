@@ -1,19 +1,19 @@
 {
-  "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "modules": "commonjs",
-          "loose": true
-        }
-      ]
-  ],
-  "plugins": [
-    "@babel/plugin-transform-runtime",
-    [
-      "@babel/plugin-transform-react-jsx", {
-        "pragma": "X"
-      }
-    ]
-  ]
-}
+	"presets": [
+		[
+		  "@babel/preset-env",
+		  {
+			"modules": "commonjs",
+			"loose": true
+		  }
+		]
+	],
+	"plugins": [
+	  "@babel/plugin-transform-runtime",
+	  [
+		"@babel/plugin-transform-react-jsx", {
+		  "pragma": "X"
+		}
+	  ]
+	]
+  }

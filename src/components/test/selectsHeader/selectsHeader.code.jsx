@@ -1,5 +1,6 @@
 import { Table, TableSelect } from '../../tablas/Tables'
 
+
 export const onClickBuscar = (e) => {
     const tabla = new Table('tabla', [["Jesus", "Pechuga", 28]])
 

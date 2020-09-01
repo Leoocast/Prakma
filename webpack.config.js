@@ -1,44 +1,53 @@
 const glob = require('glob')
-const webpack = require("webpack")
+const path = require('path'); // path utility
 
-module.exports = {
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+// init HTML Webpack Plugin
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+	template: './src/template.html', // archivo de nuestra vista
+	inject: 'body' // donde insertaremos nuestro script
+})
+// init Clean Webpack Plugin
+const CleanWebpackPluginConfig = new CleanWebpackPlugin(['public']);
+
+const config = {
     entry: {
-            //Core
-            // bundle1: glob.sync('../src/components/**.jsx'),
-            // bundle2: ['./src/app.jsx']
-            
-            bundle1: glob.sync('../src/components/**.jsx'),
-            bundle2: ['./src/appTest.jsx'],
-            //bundle3: glob.sync('../src/components/tablas/**.js')
-        },
+        // bundle1: glob.sync('../src/components/**.jsx'),
+        bundle2: glob.sync('./src/appTest.jsx'),
+    },
     watch: true,
     output: {
-        path: './build',
-        // filename: "appBundle.js",
+        path: path.resolve('./build'),
         filename: "appTestBundle.js",
         publicPath: 'http://localhost:8090/assets'
     },
-    module: {
-        loaders: [
+	module: {
+	    rules: [
             {
-                test: /.jsx$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                  presets: ['@babel/react'],
-                  plugins: ['@babel/proposal-class-properties']
-                }
-              }
-        ],
-    },
-    //Esto es para producción, no poner en desarrollo porque tarda un chingo
-    // plugins: [
-    //     new webpack.optimize.UglifyJsPlugin({
-    //       include: /\.js$/,
-    //       minimize: true
-    //     })
-    //   ],
-    resolve: {
-        extensions: ['', '.js', '.jsx']
-    }
+              test: /\.sass$/i,
+              use: [
+                // Creates `style` nodes from JS strings
+                'style-loader',
+                // Translates CSS into CommonJS
+                'css-loader',
+                'sass-loader'
+              ],
+            },
+                {
+                  test: /\.(js|jsx)$/,
+                  exclude: /node_modules/,
+                  use: {
+                    loader: "babel-loader"
+                  }
+                },
+          ],
+        },
+	resolve: {
+		extensions: ['.js', '.jsx', 'sass']
+	},
+	// plugins: [HtmlWebpackPluginConfig, CleanWebpackPluginConfig] // configuración de nuestra vista
 }
+
+module.exports = config; //exportamos a webpack nuestra configuración
