@@ -41,7 +41,8 @@
     "babel-core": "6.x || ^7.0.0-bridge.0"
   },
   "scripts": {
-    "w": "npx webpack --config webpack.config.js"
+    "w": "npx webpack --config webpack.config.js",
+    "build": "npx webpack --config webpack.prod.config.js --mode production"
   },
   "repository": {
     "type": "git",

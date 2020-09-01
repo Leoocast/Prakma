@@ -1,5 +1,7 @@
+import { Welcome } from "./welcome/welcome.component";
+
 export const Main = () =>(
     <div>
-        <h1>Hola</h1>
+        <Welcome/>
     </div>
 )

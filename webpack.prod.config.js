@@ -5,10 +5,9 @@ const config = {
         home: path.resolve('./src/views/home/home.app.jsx'),
         medidores: path.resolve('./src/views/medidores/medidores.app.jsx'),
     },
-    mode: 'development',
-    watch: true,
+    mode: 'production',
     output: {
-        path: path.resolve('./dist/js'),
+        path: path.resolve('./build/js'),
         filename: "[name].js",
     },
 	module: {
