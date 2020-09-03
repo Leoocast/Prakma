@@ -6,9 +6,13 @@ function X(tag, attrs, ...children) {
         //Si el tag es object. O es un elemento, o es una función, entonces, o retornas o ejecutas
         if (typeof tag === 'object') 
             if(tag instanceof Element)
-                return tag
-            else
-                return Object.entries(tag)[1][1](attrs)
+                  return tag
+            else {
+                if (Object.entries(tag)[1][1] instanceof Function)
+                    return Object.entries(tag)[1][1](attrs)
+                else
+                    return tag
+            }
 
         //Los tags normales de html serán strings para crear html
         if (typeof tag === 'string') {
