@@ -1,8 +1,8 @@
 {
   "name": "Prakma",
   "version": "1.0.0",
-  "description": "A custom js pragma to write JSX",
-  "main": "index.js",
+  "description": "A custom js pragma to write JSX syntax. Supports import statement, async functions, children inside components and more.",
+  "main": "",
   "dependencies": {
     "@babel/core": "^7.11.5",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
@@ -36,7 +36,7 @@
   },
   "keywords": [],
   "author": "Leo Castellanos",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Leoocast/Prakma/issues"
   },
