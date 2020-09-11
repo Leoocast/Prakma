@@ -129,7 +129,7 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("exports.__esModule=true;exports.Main=void 0;var _welcome=__webpack_require__(/*! ./welcome/welcome.component */ \"./src/views/home/components/welcome/welcome.component.jsx\");var Main=function Main(){return X(\"div\",null,X(_welcome.Welcome,null));};exports.Main=Main;\n\n//# sourceURL=webpack:///./src/views/home/components/main.jsx?");
+eval("exports.__esModule=true;exports.Main=void 0;var _welcome=__webpack_require__(/*! ./welcome/welcome.component */ \"./src/views/home/components/welcome/welcome.component.jsx\");var Main=function Main(){return Prakma(\"div\",null,Prakma(_welcome.Welcome,null));};exports.Main=Main;\n\n//# sourceURL=webpack:///./src/views/home/components/main.jsx?");
 
 /***/ }),
 
@@ -141,7 +141,7 @@ eval("exports.__esModule=true;exports.Main=void 0;var _welcome=__webpack_require
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("exports.__esModule=true;exports.Welcome=void 0;__webpack_require__(/*! ./welcome.style.sass */ \"./src/views/home/components/welcome/welcome.style.sass\");var Welcome=function Welcome(){return X(\"div\",{className:\"container\"},X(\"img\",{src:\"prakma_logo.png\",className:\"fall-down\"}),X(\"h1\",{className:\"zoom-in\"},\"Prakma.js\"),X(\"p\",{className:\"blur-to-center\"},\"\\xA9 2020 Leo Castellanos - Medithor\"));};exports.Welcome=Welcome;\n\n//# sourceURL=webpack:///./src/views/home/components/welcome/welcome.component.jsx?");
+eval("exports.__esModule=true;exports.Welcome=void 0;__webpack_require__(/*! ./welcome.style.sass */ \"./src/views/home/components/welcome/welcome.style.sass\");var Welcome=function Welcome(){return Prakma(\"div\",{className:\"container\"},Prakma(\"img\",{src:\"img/prakma_logo.png\",className:\"fall-down\"}),Prakma(\"h1\",{className:\"zoom-in\"},\"Prakma.js\"),Prakma(\"p\",{className:\"blur-to-center\"},\"\\xA9 2020 Leo Castellanos\"));};exports.Welcome=Welcome;\n\n//# sourceURL=webpack:///./src/views/home/components/welcome/welcome.component.jsx?");
 
 /***/ }),
 

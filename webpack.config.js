@@ -3,13 +3,12 @@ const path = require('path')
 const config = {
     entry: {
         home: path.resolve('./src/views/home/home.app.jsx'),
-        medidores: path.resolve('./src/views/medidores/medidores.app.jsx'),
     },
     mode: 'development',
     watch: true,
     output: {
         path: path.resolve('./dist/js'),
-        filename: "[name].js",
+        filename: "[name]/[name].js",
     },
 	module: {
 	    rules: [
