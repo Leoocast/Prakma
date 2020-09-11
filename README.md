@@ -27,7 +27,7 @@
 ## ➤ Installation
 
 ```javascript
-npm install @prakma
+npm install prakma
 ```
 
 The package is installed inside node_modules, you have to go there and copy all the files inside prakma, then bring it to your root folder.
