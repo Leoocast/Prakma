@@ -1,6 +1,6 @@
 {
   "name": "prakma",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A custom js pragma to write JSX syntax. Supports import statement, async functions, children inside components and more.",
   "main": "",
   "dependencies": {
@@ -34,7 +34,7 @@
     "type": "git",
     "url": "git+https://github.com/Leoocast/Prakma.git"
   },
-  "keywords": [],
+  "keywords": ["js", "jsx", "custom", "pragma", "prakma", "react", "webpack", "babel", "@prakma", "love" ],
   "author": "Leo Castellanos",
   "license": "MIT",
   "bugs": {
