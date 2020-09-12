@@ -34,7 +34,18 @@
     "type": "git",
     "url": "git+https://github.com/Leoocast/Prakma.git"
   },
-  "keywords": ["js", "jsx", "custom", "pragma", "prakma", "react", "webpack", "babel", "@prakma", "love" ],
+  "keywords": [
+    "js",
+    "jsx",
+    "custom",
+    "pragma",
+    "prakma",
+    "react",
+    "webpack",
+    "babel",
+    "@prakma",
+    "love"
+  ],
   "author": "Leo Castellanos",
   "license": "MIT",
   "bugs": {

@@ -51,27 +51,26 @@ function Prakma(tag, attrs, ...children) {
         //If is a button, set the click.
 
         //Si es un botón, le seteamos el click
-        if (tag === 'button') {
-            if (attrs.onClick != undefined) {
-                element.addEventListener('click', attrs.onClick)
-            }
-
-        }
+        if (tag === 'button') 
+            if(attrs !== null)
+                if (attrs.onClick !== undefined) 
+                    element.addEventListener('click', attrs.onClick)
 
         //If is a select, set onChange.
 
         //Si es un select, le seteamos el onChange
         if (tag === 'select')
-            if (attrs.onChange != undefined)
-                element.addEventListener('change', attrs.onChange)
+            if(attrs !== null)
+                if (attrs.onChange !== undefined)
+                    element.addEventListener('change', attrs.onChange)
 
         //If there are some styles, we need to time it out for create the element first. The other way
         //it create the element and don't give the styles because doesn't exists.
 
         //Verificando si vienen algunos estilos, es necesario el time out 
         //para que se cree primero el elemento, de otra manera se crea sin estilo después de dárselo.        
-        if (attrs != null)
-            if (attrs.style != undefined) {
+        if (attrs !== null)
+            if (attrs.style !== undefined) {
                 setTimeout(() => {
                     Object.assign(element.style, attrs.style)
                 }, 0)
