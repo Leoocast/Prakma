@@ -38,10 +38,19 @@ No more steps :D
 ```javascript
 npm install prakma
 ```
+Linux / Mac:
 
-The package is installed inside `node_modules`, you have to go there and copy all the files inside the folder called `prakma`, then bring it to your root folder.
+```javascript
+npm explore prakma -- npm run export-linux
+```
 
-Does anyone know how to deploy an npm command that does it for me? tell me please.
+Windows:
+
+```javascript
+npm explore prakma -- npm run export-windows
+```
+
+Don't worry if you see some errors in the console here. If you have the next structure everything is good.
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-quick)
 
@@ -93,10 +102,10 @@ This is the cool part, we have 3 main folders here.
 * prakma: Just a folder to save my love, prakma.js.
 * views : I'm going to explain this one...
 
-###| 📁components
+### | 📁components
 This folder is where you gonna save your global components of the project.
 
-###| 📁views 
+### | 📁views 
 >This structure is suggested by me, doesn't mean that you have to use it, but is what I recommend.
 
 We should have a folder for every view. Continuing with the example of Contact, let's suppose we have a Form component too. This should be our structure.
@@ -113,7 +122,7 @@ We should have a folder for every view. Continuing with the example of Contact, 
 |       └── main.style.sass
 └── contact.app.jsx
 ```
-####| 📁components 
+#### | 📁components 
 Here we have to put every component will be use in our main script. I like to have a folder for every component and 3 files inside:
  - .jsx (our component, a function returning jsx).
  - .js (component logic, every function that our component jsx gonna need).
@@ -182,8 +191,11 @@ So,  what does this all mean? It means that every object we wanted to share betw
 
 | Script name | Description |
 |-------------|-------------|
-| w | This script will start watching our files to compile any change in `dist/js/viewName/viewName.js`    
+| watch | Start watching our files to compile any change in `dist/js/viewName/viewName.js`    
 | build | Compile and minify our files. They will be in `build/js/viewName/viewName.js`
+|**Export scripts**|
+| export-linux | This script just must be used to export the prakma files out of node_modules after installation.
+| export-windows | This script just must be used to export the prakma files out of node_modules after installation.
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#templates)
 

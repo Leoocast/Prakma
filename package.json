@@ -1,6 +1,6 @@
 {
   "name": "prakma",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A custom js pragma to write JSX syntax. Supports import statement, async functions, children inside components and more.",
   "main": "",
   "dependencies": {
@@ -27,8 +27,10 @@
     "babel-core": "6.x || ^7.0.0-bridge.0"
   },
   "scripts": {
-    "w": "npx webpack --config webpack.config.js",
-    "build": "npx webpack --config webpack.prod.config.js --mode production"
+    "watch": "npx webpack --config webpack.config.js",
+    "build": "npx webpack --config webpack.prod.config.js --mode production",
+    "export-linux": "mv ./* ../../ && mv ./.* ../../",
+    "export-windows": "move ./* ../../ && move src ../../ && move dist ../../"
   },
   "repository": {
     "type": "git",
