@@ -13,24 +13,33 @@
 	</p>
 
 <p align="center">
-  A custom JS library to write JSX syntax </br>
+  JS library to write JSX </br>
 </p>
 
 
 * **Simple**: You don't have to worry about compile, the webpack preloaded config does it for you.
 * **Powerful**: Supports import statement, async functions, children inside components, sass, and more!.
 * **Awesome**: Comes with an easy to handle file structure to make your apps.
+* **Bridge**: You feel uncomfortable with React? Prakma can help you to get used with the component logic.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#installation)
 
 ## ➤ Installation
 
+#### Git clone (recommended)
+```javascript
+git clone https://github.com/Leoocast/Prakma.git
+```
+No more steps :D
+
+#### npm
+
 ```javascript
 npm install prakma
 ```
 
-The package is installed inside node_modules, you have to go there and copy all the files inside prakma, then bring it to your root folder.
+The package is installed inside `node_modules`, you have to go there and copy all the files inside the folder called `prakma`, then bring it to your root folder.
 
 Does anyone know how to deploy an npm command that does it for me? tell me please.
 
@@ -41,28 +50,27 @@ Does anyone know how to deploy an npm command that does it for me? tell me pleas
 
 This is the tree of files we have initially:
 ```
-├── dist
-│   ├── img
-│   ├── js
-|	|	├── home
-|	|	|	└── home.js
-|	|	└── prakma
-|	|		└── prakma.js
+├── 📁dist
+│   ├── 📁img
+│   ├── 📁js
+|   |	├──📁home
+|   |	|   └── home.js
+|   |	└── 📁prakma
+|   |       └── prakma.js
 |   └── home.html
-└── src
-    ├── components
-    ├── prakma
-    └── views
-		├──	home
-		|	└── components
-		|		├── welcome
-		|		|	├──	welcome.component.jsx
-		|		|	└── welcome.style.sass
-		|		└── main.jsx
-		└── home.app.jsx
+└── 📁src
+    ├── 📁components
+    └── 📁views
+	├── 📁home
+	|   ├── 📁components
+	|   |    ├── welcome.style.sass
+	|   |    ├── welcome.code.js
+	|   |    └── welcome.component.jsx
+	|   └── main.jsx
+	└── 📁home.app.jsx
 ```
 
-## dist
+## 📁dist
 
 Here is your compiled code, here you have a folder for every view you made in src. 
 For make an another view, you just have to add something like this to your new html. Suppose that we have a view called Contact.
@@ -78,38 +86,64 @@ For make an another view, you just have to add something like this to your new h
 Look at this div: `<div id="app">` here is where our view will be rendered.
 Noticed that we have to call Prakma.js before our view.
 
-## src
+## 📁src
 
 This is the cool part, we have 3 main folders here.
 * components: Where all our general components will live.
 * prakma: Just a folder to save my love, prakma.js.
 * views : I'm going to explain this one...
-### views 
+
+###| 📁components
+This folder is where you gonna save your global components of the project.
+
+###| 📁views 
 >This structure is suggested by me, doesn't mean that you have to use it, but is what I recommend.
 
-We should have a folder for every view. Continuing with the example of Contact. This shoud be our structure.
+We should have a folder for every view. Continuing with the example of Contact, let's suppose we have a Form component too. This should be our structure.
 ```
-views
-	├──	contact
-	|	└── components
-	|		├── form
-	|		|	├──	form.component.jsx
-	|		|	├── form.code.js
-	|		|	└── form.style.sass
-	|		├── main.jsx
-	|		├── main.code.js
-	|		└── main.style.sass
-	└── contact.app.jsx
+📁views
+├── 📁contact
+|   └── 📁components
+|       ├── 📁form
+|	|    ├── form.component.jsx
+|	|    ├── form.code.js
+|	|    └── form.style.sass
+|     	├── main.jsx
+|       |── main.code.js
+|       └── main.style.sass
+└── contact.app.jsx
 ```
-#### [Folder] - components
+####| 📁components 
 Here we have to put every component will be use in our main script. I like to have a folder for every component and 3 files inside:
-	- .jsx (our component, a function returning jsx)
-	- .js (component logic, every function that our component jsx gonna need)
-	- .sas (styles)
+ - .jsx (our component, a function returning jsx).
+ - .js (component logic, every function that our component jsx gonna need).
+ - .sas (styles).
 
-#### So cool but where is the state?
+#### |📁components -> 📑 main.jsx
+Like the name said, this is our main view file. This is where we assemble our components.
+
+#### | 📑 contact.app.jsx 
+Every view must have an entry point, in this case, for our example will be `contact.app.jsx`.
+
+```javascript
+import { Main } from  './components/main'
+  
+const  app = document.getElementById('app')
+app.appendChild(Main())
+```
+And you have to add the route of our new view in the entry property inside webpack.config.js and webpack.prod.config.js .
+
+```javascript
+entry: {
+	contact: path.resolve('./src/views/contact/contact.app.jsx'),
+}
+``` 
+
+
+#### So cool! but where is the state?😕
 We don't have state like React here, so, how can we manage it?
-We can handle it with vanilla js with an object structure. This is how our contact code gonna looks like: 
+
+We can handle it with vanilla js with an object structure. This is how our `main.code.js` gonna looks like: 
 ```Javascript
 export const code = {
 	
@@ -142,28 +176,14 @@ export const Main = () => (
 So,  what does this all mean? It means that every object we wanted to share between components, it must live inside our 
 `main.code.js` of the view. Remember a React rule, "everything flows down in our structure".
 
-#### Where are gonna rendered our files?
-Every view must have an entry point, in this case, for our example will be `contact.app.jsx`.
-```JSX
-import { Main } from  './components/main'
-  
-const  app = document.getElementById('app')
-app.appendChild(Main())
-```
-And you have to add the route of our new view in the entry property inside `webpack.config.js` and `webpack.prod.config.js` .
-```JS
-entry: {
-	contact: path.resolve('./src/views/contact/contact.app.jsx'),
-},
-```
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-quick)
 
 ## ➤ Package.json scripts
 
-| Script name       | Description                                      |
-|-----------------------|--------------------------------------------------|------------------------------
-| w        | This script will start watching our files to compile any change in `dist/js/viewName/viewName.js`    
-| build         | Compile and minify our files. They will be in `build/js/viewName/viewName.js`
+| Script name | Description |
+|-------------|-------------|
+| w | This script will start watching our files to compile any change in `dist/js/viewName/viewName.js`    
+| build | Compile and minify our files. They will be in `build/js/viewName/viewName.js`
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#templates)
 
