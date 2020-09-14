@@ -1,6 +1,6 @@
 {
   "name": "prakma",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "A custom js pragma to write JSX syntax. Supports import statement, async functions, children inside components and more.",
   "main": "",
   "dependencies": {

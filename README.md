@@ -31,26 +31,35 @@
 ```javascript
 git clone https://github.com/Leoocast/Prakma.git
 ```
-No more steps :D
+```javascript
+npm install
+```
 
 #### npm
 
 ```javascript
 npm install prakma
 ```
-Linux / Mac:
+Linux / Mac or Windows
+<p> Don't worry if you see some errors in the console after run this commands.</p> 
 
 ```javascript
 npm explore prakma -- npm run export-linux
 ```
 
-Windows:
-
 ```javascript
 npm explore prakma -- npm run export-windows
 ```
 
-Don't worry if you see some errors in the console here. If you have the next structure everything is good.
+
+
+```javascript
+npm install
+```
+
+
+
+The next step is open `dist/home.html`, if you see the Prakma logo, you have done great!😄
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-quick)
 
