@@ -5,16 +5,15 @@
 <h1 align="center">Prakma.js</h1>
 <h3 align="center">Made with  ❤️ to everyone who loves JSX</h3>
 <p align="center">
-</br>
-<img alt="Downloads" src="https://img.shields.io/npm/dw/prakma?label=Downloads" height="20"/></a>
-<img alt="Downloads" src="https://img.shields.io/npm/l/prakma?color=informational&label=License" height="20"/></a>
+<img alt="Downloads" src="https://img.shields.io/npm/dw/prakma?label=Downloads" height="20"/>
+<img alt="Downloads" src="https://img.shields.io/npm/l/prakma?color=informational&label=License" height="20"/>
 
-<a href="https://www.npmjs.com/package/prakma/readme">
+<a href="https://www.npmjs.com/package/prakma/">
 <img alt="NPM Version" src="https://img.shields.io/npm/v/prakma?label=Version" height="20"/></a>
-<img alt="Downloads" src="https://img.shields.io/github/last-commit/leoocast/prakma?color=blueviolet&label=Last%20commit" height="20"/></a>
+<img alt="Downloads" src="https://img.shields.io/github/last-commit/leoocast/prakma?color=blueviolet&label=Last%20commit" height="20"/>
 </p>
 <p align="center">
-  JS framework to write JSX </br>
+  JS framework to write JSX
 </p>
 
 
@@ -216,6 +215,9 @@ Licensed under [MIT](https://opensource.org/licenses/MIT).
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#templates)
 
 ## ➤ FAQ
+### Where can I see examples?
+
+You can see some here: https://leoocast.github.io/PrakmaExamples/dist/home
 
 ### How can I get involved?
 
