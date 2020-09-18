@@ -13,7 +13,7 @@ const config = {
 	module: {
 	    rules: [
             {
-              test: /\.sass$/i,
+              test: /\.(css|sass)$/i,
               use: [
                 'style-loader',
                 'css-loader',
@@ -30,7 +30,7 @@ const config = {
           ],
         },
 	resolve: {
-		extensions: ['.js', '.jsx', 'sass']
+		extensions: ['.js', '.jsx', 'css', 'sass']
   },
 }
 

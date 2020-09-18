@@ -1,7 +1,7 @@
 {
   "name": "prakma",
-  "version": "1.1.0",
-  "description": "A custom js pragma to write JSX syntax. Supports import statement, async functions, children inside components and more.",
+  "version": "1.1.1",
+  "description": "JS framework to write JSX syntax. Supports import statement, async functions, sass, scss, and more.",
   "main": "",
   "dependencies": {
     "@babel/core": "^7.11.5",
