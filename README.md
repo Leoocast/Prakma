@@ -217,7 +217,7 @@ Licensed under [MIT](https://opensource.org/licenses/MIT).
 ## ➤ FAQ
 ### Where can I see examples?
 
-You can see some here: https://leoocast.github.io/PrakmaExamples/dist/home
+You can see some here: [PrakmaExamples](https://leoocast.github.io/PrakmaExamples/dist/home)
 
 ### How can I get involved?
 
