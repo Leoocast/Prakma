@@ -5,15 +5,16 @@
 <h1 align="center">Prakma.js</h1>
 <h3 align="center">Made with  ❤️ to everyone who loves JSX</h3>
 <p align="center">
-<a href="https://www.npmjs.com/package/prakma/readme">
-<img alt="NPM Version" src="https://img.shields.io/npm/v/@appnest/readme.svg" height="20"/></a>
-<a ><img alt="Dependencies" src="https://img.shields.io/david/andreasbm/readme.svg" height="20"/></a>
-<a href="https://github.com/Leoocast/Prakma/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/andreasbm/readme.svg" height="20"/></a>
-<a href="https://github.com/Leoocast/Prakma/graphs/commit-activity"><img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" height="20"/></a>
-	</p>
+</br>
+<img alt="Downloads" src="https://img.shields.io/npm/dw/prakma?label=Downloads" height="20"/></a>
+<img alt="Downloads" src="https://img.shields.io/npm/l/prakma?color=informational&label=License" height="20"/></a>
 
+<a href="https://www.npmjs.com/package/prakma/readme">
+<img alt="NPM Version" src="https://img.shields.io/npm/v/prakma?label=Version" height="20"/></a>
+<img alt="Downloads" src="https://img.shields.io/github/last-commit/leoocast/prakma?color=blueviolet&label=Last%20commit" height="20"/></a>
+</p>
 <p align="center">
-  JS library to write JSX </br>
+  JS framework to write JSX </br>
 </p>
 
 
@@ -88,7 +89,7 @@ This is the tree of files we have initially:
 	└── 📁home.app.jsx
 ```
 
-## 📁dist
+## 📁 dist
 
 Here is your compiled code, here you have a folder for every view you made in src. 
 For make an another view, you just have to add something like this to your new html. Suppose that we have a view called Contact.
@@ -104,7 +105,7 @@ For make an another view, you just have to add something like this to your new h
 Look at this div: `<div id="app">` here is where our view will be rendered.
 Noticed that we have to call Prakma.js before our view.
 
-## 📁src
+## 📁 src
 
 This is the cool part, we have 3 main folders here.
 * components: Where all our general components will live.
@@ -131,13 +132,13 @@ We should have a folder for every view. Continuing with the example of Contact, 
 |       └── main.style.sass
 └── contact.app.jsx
 ```
-#### | 📁components 
+#### | 📁 components 
 Here we have to put every component will be use in our main script. I like to have a folder for every component and 3 files inside:
  - .jsx (our component, a function returning jsx).
  - .js (component logic, every function that our component jsx gonna need).
  - .sas (styles).
 
-#### |📁components -> 📑 main.jsx
+#### |📁 components -> 📑 main.jsx
 Like the name said, this is our main view file. This is where we assemble our components.
 
 #### | 📑 contact.app.jsx 
