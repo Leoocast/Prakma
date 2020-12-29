@@ -1,0 +1,1 @@
+export const Frak = (params = '', components) => (components)

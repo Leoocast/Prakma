@@ -1,9 +1,8 @@
 const path = require('path')
+const views = require('./webpack.config.views')
 
 const config = {
-    entry: {
-        home: path.resolve('./src/views/home/home.app.jsx'),
-    },
+    entry: views,
     mode: 'development',
     watch: true,
     output: {

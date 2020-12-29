@@ -1,9 +1,12 @@
 import './welcome.style.sass'
+import { Frak } from "../../../../libs/prakma/frak"
 
 export const Welcome = () => (
-    <div className="container">
-        <img src="img/prakma_logo.png" className="fall-down logo"></img>
-        <h1 className="zoom-in">Prakma.js</h1>
-        <p className="blur-to-center">© 2020 - Leo Castellanos</p>
-    </div>
+    <>
+        <div class="container">
+            <img src="img/prakma_logo.png" class="fall-down logo"></img>
+            <h1 class="zoom-in">Prakma.js</h1>
+            <p class="blur-to-center">© 2021 - Leo Castellanos</p>
+        </div>
+    </>
 )

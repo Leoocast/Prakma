@@ -81,10 +81,21 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/views/home/home.app.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/views/state/state.app.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? obj : {\n    \"default\": obj\n  };\n}\n\nmodule.exports = _interopRequireDefault;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/interopRequireDefault.js?");
+
+/***/ }),
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/views/home/components/welcome/welcome.style.sass":
 /*!*******************************************************************************************************************************************!*\
@@ -121,39 +132,39 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
-/***/ "./src/libs/prakma/frak.js":
+/***/ "./src/libs/hash/engine.js":
 /*!*********************************!*\
-  !*** ./src/libs/prakma/frak.js ***!
+  !*** ./src/libs/hash/engine.js ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("exports.__esModule=true;exports.Frak=void 0;var Frak=function Frak(params,components){if(params===void 0){params='';}return components;};exports.Frak=Frak;\n\n//# sourceURL=webpack:///./src/libs/prakma/frak.js?");
+eval("exports.__esModule=true;exports.FormatHtml=FormatHtml;exports.UpdateHtml=UpdateHtml;//Esta función sirve para cortar por medio del index, si es que se repite algún dato en \n//el texto del div\nString.prototype.replaceAt=function(index,oldValue,newValue){var parte1=this.substring(0,index);var parte2=this.substring(index,this.length);parte2=parte2.replace(oldValue,newValue);return parte1+parte2;};//función para obtener un valor de una propiedad o propiedades anidada(s) de un objeto\nvar getNestedProperty=function getNestedProperty(obj,property){var objTemp=obj;property.forEach(function(r,i){return objTemp=objTemp[property[i]];});return objTemp===undefined?\"##\"+property+\"##\":objTemp;};//función para verificar si todas las propiedades dadas están dentro de un objeto\nvar hasAllProperties=function hasAllProperties(obj,properties){var objTemp=obj;properties.forEach(function(r,i){//si el objeto es nulo o no se encontro la propiedad actual en el objeto regresamos falso\nif(!objTemp||!objTemp.hasOwnProperty(r))return false;/*  en caso contrario igualamos el objeto temporal a su propiedad segun el índice actual \r\n            para seguir verificando si existen todas las propiedadas anidadas   \r\n        */objTemp=objTemp[properties[i]];});return true;};//Para no repetir el código del split\nvar getDataset=function getDataset(element,dataset){return element.dataset[dataset].split('|').filter(function(r){return r!==\"\";});};function FormatHtml(data){var xpath=\"//*[contains(text(),'##')]\";var divs=document.evaluate(xpath,document,null,XPathResult.ORDERED_NODE_ITERATOR_TYPE,null);//Necesario para guardar los divs después de iterar.\n//divs es como un IEnumerable\nvar elementsChange=[];var nextDiv=divs.iterateNext();while(nextDiv){elementsChange.push(nextDiv);nextDiv=divs.iterateNext();}elementsChange.filter(function(r){return r!==null;}).forEach(function(item){return _changeValue(item,data);});return elementsChange;}function _changeValue(element,data,isUpdate){if(isUpdate===void 0){isUpdate=false;}var text=element.innerHTML;//Obteniendo los textos a modificar\nvar stringToReplace=text.split(\"##\").filter(function(r,i){return i%2!==0;});//Esto es para que no se muevan tags no seleccionados\nvar isThere=stringToReplace.filter(function(r){return hasAllProperties(data,r.split('.'));});//Iterando sobre ellos y remplazando. Agregando keys y content\nvar keys=\"\";var content=\"\";var indexOf=\"\";stringToReplace.forEach(function(item){keys+=item+\"|\";content+=getNestedProperty(data,item.split('.'))+\"|\";indexOf+=text.indexOf(\"##\"+item+\"##\")+\"|\";text=text.replace(\"##\"+item+\"##\",getNestedProperty(data,item.split('.')));});if(isThere.length===0){element.setAttribute('data-content',\"##\"+stringToReplace+\"##\");element.setAttribute('data-keys',keys);element.setAttribute('data-indexof',indexOf);}else{//Se agrega el atributo data-keys para usarlo al modificar\nelement.setAttribute('data-keys',keys);element.setAttribute('data-indexof',indexOf);element.setAttribute('data-content',content);element.innerHTML=text;}}function _changeByContent(element,json){//Se obtienen los datos a modificar\nvar contents=getDataset(element,'content');var keys=getDataset(element,'keys');var index=getDataset(element,'indexof');var text=element.innerHTML;var keysdataSet=\"\";var contentDataset=\"\";var indexOfDataset=\"\";for(var i=0;i<=contents.length;i++){var content=contents[i];var key=keys[i];//Si existe el objeto a modificar en el json enviado\nif(content!==undefined&&json[key]!==undefined){keysdataSet+=key+\"|\";contentDataset+=json[key]+\"|\";indexOfDataset+=index[i]+\"|\";text=text.replaceAt(index[i],content.replace(/ /g,' '),json[key]);}}element.setAttribute('data-keys',keysdataSet);element.setAttribute('data-content',contentDataset);element.setAttribute('data-indexof',indexOfDataset);element.innerHTML=text;//Esto esta curada, verificar que otras posibilidades hay\nelement.style.display='block';}function UpdateHtml(elements,json){var jsonKeys=Object.keys(json);var elementsChange=elements.filter(function(r){return jsonKeys.some(function(x){return r.dataset.keys.includes(x+\"|\");});});elementsChange.forEach(function(item){return _changeByContent(item,json);});}\n\n//# sourceURL=webpack:///./src/libs/hash/engine.js?");
 
 /***/ }),
 
-/***/ "./src/views/home/components/main.jsx":
-/*!********************************************!*\
-  !*** ./src/views/home/components/main.jsx ***!
-  \********************************************/
+/***/ "./src/libs/hash/hash.js":
+/*!*******************************!*\
+  !*** ./src/libs/hash/hash.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("exports.__esModule=true;exports.Main=void 0;var _welcome=__webpack_require__(/*! ./welcome/welcome.component */ \"./src/views/home/components/welcome/welcome.component.jsx\");var Main=function Main(){return Prakma(\"div\",null,Prakma(_welcome.Welcome,null));};exports.Main=Main;\n\n//# sourceURL=webpack:///./src/views/home/components/main.jsx?");
+eval("exports.__esModule=true;exports.Hash=void 0;var _engine=__webpack_require__(/*! ./engine */ \"./src/libs/hash/engine.js\");var Hash=/*#__PURE__*/function(){function Hash(){this.children=[];this.div=[];this.elementsChange=[];this.data={};this.isRendered=false;}var _proto=Hash.prototype;_proto.Update=function Update(json,render){if(render===void 0){render=true;}for(var _len=arguments.length,objects=new Array(_len>2?_len-2:0),_key=2;_key<_len;_key++){objects[_key-2]=arguments[_key];}if(!this.isRendered)this.Render.apply(this,[json].concat(objects));else if(!this._stateHasChange.apply(this,[json].concat(objects)))return;else if(render&&this.isRendered){//Muy importante que se pase la data que viene como parámetro, no el this.data\nObject.assign.apply(Object,[this.data,json].concat(objects));(0,_engine.UpdateHtml)(this.elementsChange,json);}else if(render)console.error(\"[HASH ERROR] -> You have to render first!\");};_proto.Render=function Render(json){if(Object.keys(json).length===0)return;for(var _len2=arguments.length,objects=new Array(_len2>1?_len2-1:0),_key2=1;_key2<_len2;_key2++){objects[_key2-1]=arguments[_key2];}Object.assign.apply(Object,[this.data,json].concat(objects));this.elementsChange=(0,_engine.FormatHtml)(this.data);this.isRendered=true;};_proto._stateHasChange=function _stateHasChange(newData){var _this=this;for(var _len3=arguments.length,objects=new Array(_len3>1?_len3-1:0),_key3=1;_key3<_len3;_key3++){objects[_key3-1]=arguments[_key3];}Object.assign.apply(Object,[newData].concat(objects));var keys=Object.keys(newData);var result=keys.map(function(key){return newData[key]===_this.data[key];});return result.some(function(r){return r===false;});};return Hash;}();exports.Hash=Hash;\n\n//# sourceURL=webpack:///./src/libs/hash/hash.js?");
 
 /***/ }),
 
-/***/ "./src/views/home/components/welcome/welcome.component.jsx":
-/*!*****************************************************************!*\
-  !*** ./src/views/home/components/welcome/welcome.component.jsx ***!
-  \*****************************************************************/
+/***/ "./src/libs/prakma/prakma.js":
+/*!***********************************!*\
+  !*** ./src/libs/prakma/prakma.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("exports.__esModule=true;exports.Welcome=void 0;__webpack_require__(/*! ./welcome.style.sass */ \"./src/views/home/components/welcome/welcome.style.sass\");var _frak=__webpack_require__(/*! ../../../../libs/prakma/frak */ \"./src/libs/prakma/frak.js\");var Welcome=function Welcome(){return Prakma(_frak.Frak,null,Prakma(\"div\",{\"class\":\"container\"},Prakma(\"img\",{src:\"img/prakma_logo.png\",\"class\":\"fall-down logo\"}),Prakma(\"h1\",{\"class\":\"zoom-in\"},\"Prakma.js\"),Prakma(\"p\",{\"class\":\"blur-to-center\"},\"\\xA9 2021 - Leo Castellanos\")));};exports.Welcome=Welcome;\n\n//# sourceURL=webpack:///./src/views/home/components/welcome/welcome.component.jsx?");
+eval("exports.__esModule=true;exports.getState=exports.setState=exports.prakmaState=void 0;var _hash=__webpack_require__(/*! ../hash/hash */ \"./src/libs/hash/hash.js\");var hash=new _hash.Hash();var prakmaState=function prakmaState(json,code){for(var _len=arguments.length,objects=new Array(_len>2?_len-2:0),_key=2;_key<_len;_key++){objects[_key-2]=arguments[_key];}setTimeout(function(){hash.Update.apply(hash,[json,true].concat(objects));if(code!==undefined){Object.assign.apply(Object,[code.state,json].concat(objects));}},0);};exports.prakmaState=prakmaState;var code={//#region Necesario para manejar el estado\nstate:{},setState:function setState(json){for(var _len2=arguments.length,objects=new Array(_len2>1?_len2-1:0),_key2=1;_key2<_len2;_key2++){objects[_key2-1]=arguments[_key2];}prakmaState.apply(void 0,[json,code].concat(objects));},getState:function getState(){return code.state;}//#endregion \n};//Opcional pero recomendado\nvar setState=code.setState;exports.setState=setState;var getState=code.getState;exports.getState=getState;\n\n//# sourceURL=webpack:///./src/libs/prakma/prakma.js?");
 
 /***/ }),
 
@@ -168,15 +179,39 @@ eval("var api = __webpack_require__(/*! ../../../../../node_modules/style-loader
 
 /***/ }),
 
-/***/ "./src/views/home/home.app.jsx":
-/*!*************************************!*\
-  !*** ./src/views/home/home.app.jsx ***!
-  \*************************************/
+/***/ "./src/views/state/components/main.code.js":
+/*!*************************************************!*\
+  !*** ./src/views/state/components/main.code.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("var _main=__webpack_require__(/*! ./components/main */ \"./src/views/home/components/main.jsx\");var app=document.getElementById('app');app.appendChild((0,_main.Main)());\n\n//# sourceURL=webpack:///./src/views/home/home.app.jsx?");
+eval("var _prakma=__webpack_require__(/*! ../../../libs/prakma/prakma */ \"./src/libs/prakma/prakma.js\");var code={writePhrase:function writePhrase(){var phrase=['Prakma','is','awesome!'];var counter=0;setInterval(function(){(0,_prakma.setState)({phrase:phrase[counter]});counter++;if(counter>2)counter=0;},600);},writeDate:function writeDate(){var _this=this;setInterval(function(){var time=_this.getTime();(0,_prakma.setState)({time:time});},1000);},getTime:function getTime(){var today=new Date();var time=today.getHours()+':'+today.getMinutes()+':'+(today.getSeconds()>9?today.getSeconds():'0'+today.getSeconds());return time;},init:function init(){var time=this.getTime();(0,_prakma.setState)({time:time,phrase:'Prakma'});this.writePhrase();this.writeDate();}};code.init();\n\n//# sourceURL=webpack:///./src/views/state/components/main.code.js?");
+
+/***/ }),
+
+/***/ "./src/views/state/components/main.jsx":
+/*!*********************************************!*\
+  !*** ./src/views/state/components/main.jsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("var _interopRequireDefault=__webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");exports.__esModule=true;exports.Main=void 0;__webpack_require__(/*! ../../home/components/welcome/welcome.style.sass */ \"./src/views/home/components/welcome/welcome.style.sass\");var _main=_interopRequireDefault(__webpack_require__(/*! ../components/main.code */ \"./src/views/state/components/main.code.js\"));var Main=function Main(){return Prakma(\"div\",null,Prakma(\"div\",{\"class\":\"container\"},Prakma(\"img\",{src:\"img/prakma_logo.png\",\"class\":\"fall-down logo\"}),Prakma(\"h1\",{\"class\":\"zoom-in\"},\"##phrase##\"),Prakma(\"div\",null),Prakma(\"h2\",{\"class\":\"blur-to-center\"},\"##time##\")),Prakma(\"div\",{\"class\":\"text-center pt-2\"},Prakma(\"p\",null,\"\\xA9 2021 - Leo Castellanos\")));};exports.Main=Main;\n\n//# sourceURL=webpack:///./src/views/state/components/main.jsx?");
+
+/***/ }),
+
+/***/ "./src/views/state/state.app.jsx":
+/*!***************************************!*\
+  !*** ./src/views/state/state.app.jsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("var _main=__webpack_require__(/*! ./components/main */ \"./src/views/state/components/main.jsx\");var app=document.getElementById('app');app.appendChild((0,_main.Main)());\n\n//# sourceURL=webpack:///./src/views/state/state.app.jsx?");
 
 /***/ })
 

@@ -1,6 +1,6 @@
 {
   "name": "prakma",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "JS framework to write JSX syntax. Supports import statement, async functions, sass, scss, and more.",
   "main": "",
   "dependencies": {
@@ -30,7 +30,8 @@
     "watch": "npx webpack --config webpack.config.js",
     "build": "npx webpack --config webpack.prod.config.js --mode production",
     "export-linux": "mv ./* ../../ && mv ./.* ../../",
-    "export-windows": "move ./* ../../ && move src ../../ && move dist ../../"
+    "export-windows": "move ./* ../../ && move src ../../ && move dist ../../",
+    "view": "cd src\\views & mkdir %view% & cd %view% & touch \"%view%.app.jsx\" & mkdir components & cd components & touch main.jsx"
   },
   "repository": {
     "type": "git",

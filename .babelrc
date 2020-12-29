@@ -13,7 +13,8 @@
 		"@babel/plugin-transform-runtime",
 		[
 			"@babel/plugin-transform-react-jsx", {
-				"pragma": "Prakma"
+				"pragma": "Prakma",
+				"pragmaFrag": "Frak"
 			}
 		]
 	]
