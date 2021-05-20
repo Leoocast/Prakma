@@ -18,9 +18,9 @@
 
 
 * **Simple**: You don't have to worry about compile, the webpack preloaded config does it for you.
-* **Powerful**: Supports import statement, async functions, children inside components, sass, and more!.
+* **Powerful**: Supports state, import statement, async functions, children inside components, sass, and more!.
 * **Awesome**: Comes with an easy to handle file structure to make your apps.
-* **Bridge**: You feel uncomfortable with React? Prakma can help you to get used with the component logic.
+<!-- * **Bridge**: You feel uncomfortable with React? Prakma can help you to get used with the component logic. -->
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#installation)
@@ -149,50 +149,114 @@ import { Main } from  './components/main'
 const  app = document.getElementById('app')
 app.appendChild(Main())
 ```
-And you have to add the route of our new view in the entry property inside webpack.config.js and webpack.prod.config.js .
+And you have to add the route of our new view in the entry property inside `webpack.config.views.js`.
 
 ```javascript
-entry: {
-	contact: path.resolve('./src/views/contact/contact.app.jsx'),
+module.exports =  {
+    contact: view `contact`,
 }
 ``` 
 
+## ➤ State
+#### So cool! but where is the state? 🤔
+We have a global state here, so, how can we manage it?
 
-#### So cool! but where is the state?😕
-We don't have state like React here, so, how can we manage it?
+If we want to use it, we have to import the state first that is inside of:
+```
+📁libs
+└── 📁prakma
+    └── prakma.js
+```
 
-We can handle it with vanilla js with an object structure. This is how our `main.code.js` gonna looks like: 
 ```Javascript
-export const code = {
-	
-	//---- Your logic here ----		
-	
-	init: () => {
-		//--- Things you want to load ---
-	}
-}
-
-code.init()
+import { setState, getState } from "../../../libs/prakma/prakma";
 ``` 
-Suppose that we have a variable that we wanna pass it to another component, we can do this:
+Suppose we have a user we want to store, just do this:
 ```Javascript
-export const code = {
-	propertyWeWantToShare: []
-}
+setState({user})
 ``` 
-And in our ```main.jsx```  :
+If we want to retrieve the object:
+```Javascript
+const user = getState().user
+``` 
+#### Ok, we have an internal state. Now, if I want to update the view when the state changes?
+
+Well, here is a little different from React. Suppose we want to print the user info, for that we must write this type of component.
 ```JSX
-import { code } from './main.code'
-import { Form } from './form/form.component.jsx'
-
-export const Main = () => (
-	<div className="container">
-		<Form propertyToShare={code.propertyWeWantToShare}/>
+export const User = () => (
+	<div class="user">
+		<div>##name##</div>
+		<div>##age##</div>
+		<div>##occupation##</div>
 	</div>
 )
 ```
-So,  what does this all mean? It means that every object we wanted to share between components, it must live inside our 
-`main.code.js` of the view. Remember a React rule, "everything flows down in our structure".
+And our object in the state must be stored like this:
+```Javascript
+const user = {
+	name: "Leo",
+	age: 20,
+	occupation: "Engineer"
+}
+
+setState({user})
+```
+We can modify the object every time we want:
+```Javascript
+setState({user: {age: 22}})
+```
+At the moment we do that, our view will be updated.
+
+**Important note**:
+This only works for objects, I'm working in print an array with his key and something like React, wait for that in the nexts months.
+
+## ➤ Fetch / Request an API
+With Prakma you can easily make a request. You can do it importing the request object:
+```Javascript
+import { Request } from '../../request/request'
+
+const morty = await Request.GET('https://rickandmortyapi.com/api/character//2')
+```
+That's the raw form, but you can do it better with a Prakma controller, but first you have to config the host in `api/config.json.js`:
+```Javascript
+export const config = {
+    server: 'https://rickandmortyapi.com/api/'
+}
+```
+Then, create a controller file in `api/controller`, in this case `characterController.js`:
+```Javascript
+import { PrakmaController } from "./controller";
+
+class CharacterController extends PrakmaController{
+    constructor(){
+        super('character/')
+    }
+
+    async getMorty(){
+        return this.get('2')
+    }
+}
+
+export const characterController = new CharacterController() 
+```
+And in your main view, just import the object from the `characterController` and call the method `getMorty()`:
+```Javascript
+import { characterController } from '../../../libs/api/controller/characterController'
+
+//You can do this
+characterController.getMorty().then(morty => {
+    //awesome code
+})
+
+//Or this
+const morty = await characterController.getMorty()
+```
+
+
+## ➤ DOM
+#### Goodbye `document.getElementById` hi `get` 
+
+Prakma has a lot of methods than can help you to code by not taking care of the DOM methods, just use a help method inside `libs/utils/dom.code`. I'm working in the documentation for this.
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-quick)
 
@@ -230,4 +294,4 @@ There are lot's of ways to support me! I would be so happy if you gave this repo
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#contributors)
 
-That's all folks.
+That's all for now folks.

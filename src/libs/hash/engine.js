@@ -55,9 +55,16 @@ export function FormatHtml(data){
         elementsChange.push(nextDiv)
         nextDiv = divs.iterateNext()
     }
-    
+
     elementsChange.filter(r => r !== null)
-                  .forEach(item => _changeValue(item, data))
+        .forEach(item => _changeValue(item, data))
+
+    if(Object.keys(data).length === 1){
+        const key = Object.keys(data)[0]
+        const elementos = elementsChange.filter(r => r.dataset.keys === key + '|') //[0]
+        
+        return elementos
+    }
 
     return elementsChange
 }
@@ -135,7 +142,7 @@ function _changeByContent(element, json){
 
 export function UpdateHtml(elements, json){    
     const jsonKeys = Object.keys(json)
-    
+
     const elementsChange = elements.filter(r => jsonKeys.some(x => r.dataset.keys.includes(x +"|")))
 
     elementsChange.forEach(item => _changeByContent(item, json))

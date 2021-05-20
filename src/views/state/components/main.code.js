@@ -1,4 +1,4 @@
-import { setState } from "../../../libs/prakma/prakma";
+import { setState, getState } from "../../../libs/prakma/prakma";
 
 const code = {
     writePhrase(){
@@ -16,7 +16,11 @@ const code = {
     writeDate(){
         setInterval(() => {
             const time = this.getTime()
-            setState({time: time})
+            setState({time})
+            
+            const newTime = getState().time
+
+            console.log("Time: ", newTime)
         }, 1000)
     },
     getTime(){

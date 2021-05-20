@@ -12,17 +12,19 @@ export class Hash {
     }
 
     Update(json, render = true, ...objects){
-
-        if(!this.isRendered)
+        
+        if(!this.isRendered || !render)
             this.Render(json, ...objects)
             
         else if(!this._stateHasChange(json, ...objects))
             return
 
         else if(render && this.isRendered){
-            //Muy importante que se pase la data que viene como parámetro, no el this.data
+
+            this.elementsChange = this._getNewElements(json)
+
             Object.assign(this.data, json, ...objects)
-            
+
             UpdateHtml(this.elementsChange, json)
         }
         else if(render)
@@ -36,8 +38,34 @@ export class Hash {
 
         Object.assign(this.data, json, ...objects)
 
-        this.elementsChange = FormatHtml(this.data)
+        const tmp = FormatHtml(this.data)
+ 
+        const newElements = tmp.filter(r => !this.elementsChange.includes(r))
+ 
+        this.elementsChange = [...this.elementsChange, ...newElements]
+
         this.isRendered = true
+
+        this.elementsChange = this.elementsChange.filter(r => document.body.contains(r))
+    }
+
+    _getNewElements(json){
+
+        const newElements = Array.from(this.elementsChange)
+        
+        let valid = false
+        Object.keys(json).forEach(r => {
+            if(!Object.keys(this.data).includes(r)){      
+                valid = true
+                const els = FormatHtml({[r]: json[r]})
+                newElements.push(...els)
+            }
+        })   
+        //Esto sigue en prueba :D
+        if(!valid)
+            return this.elementsChange
+            
+        return newElements
     }
 
     _stateHasChange(newData, ...objects){
