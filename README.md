@@ -185,9 +185,9 @@ Well, here is a little different from React. Suppose we want to print the user i
 ```JSX
 export const User = () => (
 	<div class="user">
-		<div>##name##</div>
-		<div>##age##</div>
-		<div>##occupation##</div>
+		<div>##user.name##</div>
+		<div>##user.age##</div>
+		<div>##user.occupation##</div>
 	</div>
 )
 ```
