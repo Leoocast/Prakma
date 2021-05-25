@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/views/state/state.app.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/views/hookUseState/hookUseState.app.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -165,6 +165,18 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/libs/extensions/html.js":
+/*!*************************************!*\
+  !*** ./src/libs/extensions/html.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("HTMLElement.prototype.insertComponent=function(html){this.innerHTML=\"\";this.append(html);};HTMLElement.prototype.clear=function(html){this.innerHTML=\"\";};HTMLElement.prototype.render=function(){return this.outerHTML;};\n\n//# sourceURL=webpack:///./src/libs/extensions/html.js?");
+
+/***/ }),
+
 /***/ "./src/libs/hash/engine.js":
 /*!*********************************!*\
   !*** ./src/libs/hash/engine.js ***!
@@ -189,6 +201,18 @@ eval("exports.__esModule=true;exports.Hash=void 0;var _engine=__webpack_require_
 
 /***/ }),
 
+/***/ "./src/libs/prakma/hooks.js":
+/*!**********************************!*\
+  !*** ./src/libs/prakma/hooks.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("exports.__esModule=true;exports.useState=void 0;var _prakma=__webpack_require__(/*! ./prakma */ \"./src/libs/prakma/prakma.js\");function getSeed(){var d=new Date();var h=d.getHours();var m=d.getMinutes();var s=d.getSeconds();var ms=d.getMilliseconds();return(h+m+s+ms+h+m+s+ms+Math.floor(Math.random()*(9999-0)+0)).toString();}var useState=function useState(defaultValue){var _setState;var seedState=getSeed();(0,_prakma.setState)((_setState={},_setState[seedState]=defaultValue,_setState));var setStateCustom=function setStateCustom(fn,callback){var stateValue=(0,_prakma.getState)()[seedState];setTimeout(function(){var _setState2;var result=fn(stateValue);(0,_prakma.setState)((_setState2={},_setState2[seedState]=result,_setState2));setTimeout(function(){callback(result);},0);},0);};return[\"##\"+seedState+\"##\",setStateCustom];};exports.useState=useState;\n\n//# sourceURL=webpack:///./src/libs/prakma/hooks.js?");
+
+/***/ }),
+
 /***/ "./src/libs/prakma/prakma.js":
 /*!***********************************!*\
   !*** ./src/libs/prakma/prakma.js ***!
@@ -198,6 +222,18 @@ eval("exports.__esModule=true;exports.Hash=void 0;var _engine=__webpack_require_
 
 "use strict";
 eval("var _interopRequireDefault=__webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");exports.__esModule=true;exports.getState=exports.setState=exports.awaitState=exports.awaitStateElement=exports.awaitReturn=exports.awaitDom=exports.codePublic=exports.prakmaState=void 0;var _regenerator=_interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ \"./node_modules/@babel/runtime/regenerator/index.js\"));var _asyncToGenerator2=_interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ \"./node_modules/@babel/runtime/helpers/asyncToGenerator.js\"));var _hash=__webpack_require__(/*! ../hash/hash */ \"./src/libs/hash/hash.js\");var hash=new _hash.Hash();var prakmaState=function prakmaState(json,code,render){if(render===void 0){render=true;}for(var _len=arguments.length,objects=new Array(_len>3?_len-3:0),_key=3;_key<_len;_key++){objects[_key-3]=arguments[_key];}setTimeout(function(){hash.Update.apply(hash,[json,render].concat(objects));if(code!==undefined){Object.assign.apply(Object,[code.state,json].concat(objects));}},0);};exports.prakmaState=prakmaState;var code={//#region Necesario para manejar el estado\nstate:{},setState:function setState(json,render){if(render===void 0){render=false;}for(var _len2=arguments.length,objects=new Array(_len2>2?_len2-2:0),_key2=2;_key2<_len2;_key2++){objects[_key2-2]=arguments[_key2];}prakmaState.apply(void 0,[json,code,!render].concat(objects));},getState:function getState(){return code.state;}//#endregion \n};var codePublic=code;exports.codePublic=codePublic;var awaitDom=function awaitDom(element,callback){var tries=0;var interval=setInterval(/*#__PURE__*/(0,_asyncToGenerator2[\"default\"])(/*#__PURE__*/_regenerator[\"default\"].mark(function _callee(){var el;return _regenerator[\"default\"].wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_context.prev=0;el=document.querySelector(element);if(!(el!=null)){_context.next=7;break;}clearInterval(interval);_context.next=6;return callback(el);case 6:return _context.abrupt(\"return\",_context.sent);case 7:if(tries===10){console.error(\"[Prakma] awaitDom()\\n\"+element+\" not found in the DOM\");clearInterval(interval);}tries++;_context.next=16;break;case 11:_context.prev=11;_context.t0=_context[\"catch\"](0);console.error(\"[Prakma] awaitDom()\\n\"+element+\" is not a valid selector\");clearInterval(interval);return _context.abrupt(\"return\");case 16:case\"end\":return _context.stop();}}},_callee,null,[[0,11]]);})),1);};exports.awaitDom=awaitDom;var awaitReturn=function awaitReturn(callback,time){setTimeout(/*#__PURE__*/(0,_asyncToGenerator2[\"default\"])(/*#__PURE__*/_regenerator[\"default\"].mark(function _callee2(){return _regenerator[\"default\"].wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:return _context2.abrupt(\"return\",callback);case 1:case\"end\":return _context2.stop();}}},_callee2);})),time);};exports.awaitReturn=awaitReturn;var awaitStateElement=function awaitStateElement(element){var tries=0;var interval=setInterval(/*#__PURE__*/(0,_asyncToGenerator2[\"default\"])(/*#__PURE__*/_regenerator[\"default\"].mark(function _callee3(){var state;return _regenerator[\"default\"].wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:_context3.prev=0;state=getState();if(!(state[element]!=null)){_context3.next=5;break;}clearInterval(interval);return _context3.abrupt(\"return\",state[element]);case 5:if(tries===10){console.error(\"[Prakma] awaitState()\\n\"+element+\" not found in the state\");clearInterval(interval);}tries++;_context3.next=14;break;case 9:_context3.prev=9;_context3.t0=_context3[\"catch\"](0);console.error(\"[Prakma] awaitState()\\n\"+element+\" is not a valid property\");clearInterval(interval);return _context3.abrupt(\"return\");case 14:case\"end\":return _context3.stop();}}},_callee3,null,[[0,9]]);})),10);};exports.awaitStateElement=awaitStateElement;var awaitState=/*#__PURE__*/function(){var _ref4=(0,_asyncToGenerator2[\"default\"])(/*#__PURE__*/_regenerator[\"default\"].mark(function _callee5(element,fn,fn2){var interval;return _regenerator[\"default\"].wrap(function _callee5$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:console.log(fn);_context5.next=3;return fn();case 3:interval=setInterval(/*#__PURE__*/(0,_asyncToGenerator2[\"default\"])(/*#__PURE__*/_regenerator[\"default\"].mark(function _callee4(){var state;return _regenerator[\"default\"].wrap(function _callee4$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:_context4.prev=0;state=getState();if(!(state[element]!=null)){_context4.next=5;break;}clearInterval(interval);return _context4.abrupt(\"return\",fn2());case 5:_context4.next=12;break;case 7:_context4.prev=7;_context4.t0=_context4[\"catch\"](0);console.error(\"[Prakma] awaitState()\\n\"+element+\" is not a valid property\");clearInterval(interval);return _context4.abrupt(\"return\");case 12:case\"end\":return _context4.stop();}}},_callee4,null,[[0,7]]);})),100);case 4:case\"end\":return _context5.stop();}}},_callee5);}));return function awaitState(_x,_x2,_x3){return _ref4.apply(this,arguments);};}();//Opcional pero recomendado\nexports.awaitState=awaitState;var setState=code.setState;exports.setState=setState;var getState=code.getState;exports.getState=getState;\n\n//# sourceURL=webpack:///./src/libs/prakma/prakma.js?");
+
+/***/ }),
+
+/***/ "./src/libs/utils/dom.js":
+/*!*******************************!*\
+  !*** ./src/libs/utils/dom.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("exports.__esModule=true;exports.validateInputs=validateInputs;exports.enableInputs=enableInputs;exports.clearInputs=clearInputs;exports.setImage=exports.remove=exports.clearHTML=exports.hide=exports.show=exports.setOpacity=exports.set=exports.valueof=exports.click=exports.addClicks=exports.addClick=exports.getQueryAll=exports.getQuery=exports.getSelectedOptionText=exports.get=void 0;function _createForOfIteratorHelperLoose(o,allowArrayLike){var it;if(typeof Symbol===\"undefined\"||o[Symbol.iterator]==null){if(Array.isArray(o)||(it=_unsupportedIterableToArray(o))||allowArrayLike&&o&&typeof o.length===\"number\"){if(it)o=it;var i=0;return function(){if(i>=o.length)return{done:true};return{done:false,value:o[i++]};};}throw new TypeError(\"Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\");}it=o[Symbol.iterator]();return it.next.bind(it);}function _unsupportedIterableToArray(o,minLen){if(!o)return;if(typeof o===\"string\")return _arrayLikeToArray(o,minLen);var n=Object.prototype.toString.call(o).slice(8,-1);if(n===\"Object\"&&o.constructor)n=o.constructor.name;if(n===\"Map\"||n===\"Set\")return Array.from(o);if(n===\"Arguments\"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))return _arrayLikeToArray(o,minLen);}function _arrayLikeToArray(arr,len){if(len==null||len>arr.length)len=arr.length;for(var i=0,arr2=new Array(len);i<len;i++){arr2[i]=arr[i];}return arr2;}var get=function get(id){return document.getElementById(id);};exports.get=get;var getSelectedOptionText=function getSelectedOptionText(id){var element=get(id);return element.options[element.selectedIndex].text;};exports.getSelectedOptionText=getSelectedOptionText;var getQuery=document.querySelector.bind(document);exports.getQuery=getQuery;var getQueryAll=document.querySelectorAll.bind(document);exports.getQueryAll=getQueryAll;var addClick=function addClick(query,fn){return get(query).addEventListener('click',fn());};exports.addClick=addClick;var addClicks=function addClicks(query,fn){return Array.from(getQueryAll(query)).forEach(function(input){return input.addEventListener('click',function(event){fn(event.target.dataset,event);});});};exports.addClicks=addClicks;var click=function click(id){return get(id).click();};exports.click=click;var valueof=function valueof(id){return get(id).value;};exports.valueof=valueof;var set=function set(id,value){return get(id).value=value;};exports.set=set;var setOpacity=function setOpacity(query,opacity){var element=getQuery(query);if(element!==null)element.style.opacity=opacity;};exports.setOpacity=setOpacity;var show=function show(query){var elements=Array.from(getQueryAll(query));elements.forEach(function(r){return r.classList.remove('d-none');});};exports.show=show;var hide=function hide(query){var elements=Array.from(getQueryAll(query));elements.forEach(function(r){return r.classList.add('d-none');});};exports.hide=hide;var clearHTML=function clearHTML(query){var elements=Array.from(getQueryAll(query));elements.forEach(function(r){return r.innerHTML='';});};exports.clearHTML=clearHTML;var remove=function remove(query){var elements=Array.from(getQueryAll(query));elements.forEach(function(r){return r.remove();});};exports.remove=remove;var setImage=function setImage(query,image){var elements=Array.from(getQueryAll(query));elements.forEach(function(r){return r.src=image;});};exports.setImage=setImage;function validateInputs(divs,isElement){if(isElement===void 0){isElement=false;}var fn=function fn(input){var flag=true;switch(input.type){case'text':case'number':case'select-one':flag=!(input.value===''||input.value==='0');break;case'radio':case'checkbox':flag=input.checked;break;case'file':flag=!(input.files.length<1);break;}return flag;};if(divs instanceof Array){for(var _iterator=_createForOfIteratorHelperLoose(divs),_step;!(_step=_iterator()).done;){var div=_step.value;var result=validateInputs(div,isElement);if(!result)return result;}return true;}else{if(isElement)return pipeElements(divs,fn,true);else return pipeInputsDiv(divs,fn,true);}}function enableInputs(divs,enable,isElement){if(enable===void 0){enable=true;}if(isElement===void 0){isElement=false;}var fn=function fn(r){if(enable)r.removeAttribute('disabled');else r.setAttribute('disabled','disabled');};if(divs instanceof Array)divs.forEach(function(r){return enableInputs(r,enable,isElement);});else if(isElement)pipeElements(divs,fn);else pipeInputsDiv(divs,fn);}function clearInputs(divs,isElement){if(isElement===void 0){isElement=false;}var fn=function fn(input){switch(input.type){case'text':case'number':input.value='';break;case'select-one':input.value='0';input.dispatchEvent(new Event('change'));break;case'radio':case'checkbox':input.checked=false;break;case'file':input.value=null;break;}};if(divs instanceof Array)divs.forEach(function(r){return clearInputs(r,isElement);});else if(isElement)pipeElements(divs,fn);else pipeInputsDiv(divs,fn);}function pipeInputsDiv(div,fn,returns){if(returns===void 0){returns=false;}div=typeof div===typeof{}?div:document.getElementById(div);var inputs=div.querySelectorAll('input, select');for(var _iterator2=_createForOfIteratorHelperLoose(inputs),_step2;!(_step2=_iterator2()).done;){var input=_step2.value;if(returns&&!fn(input))return false;else fn(input);}if(returns)return true;}function pipeElements(input,fn,returns){if(returns===void 0){returns=false;}input=typeof input===typeof{}?input:document.getElementById(input);if(returns&&!fn(input))return false;else fn(input);if(returns)return true;}\n\n//# sourceURL=webpack:///./src/libs/utils/dom.js?");
 
 /***/ }),
 
@@ -212,39 +248,27 @@ eval("var api = __webpack_require__(/*! ../../../../../node_modules/style-loader
 
 /***/ }),
 
-/***/ "./src/views/state/components/main.code.js":
-/*!*************************************************!*\
-  !*** ./src/views/state/components/main.code.js ***!
-  \*************************************************/
+/***/ "./src/views/hookUseState/components/main.jsx":
+/*!****************************************************!*\
+  !*** ./src/views/hookUseState/components/main.jsx ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("var _prakma=__webpack_require__(/*! ../../../libs/prakma/prakma */ \"./src/libs/prakma/prakma.js\");Number.prototype.addZero=function(){return this>9?this:\"0\"+this;};var code={writePhrase:function writePhrase(){var phrase=['Prakma','is','awesome!'];var counter=0;setInterval(function(){(0,_prakma.setState)({phrase:phrase[counter]});counter++;if(counter>2)counter=0;},600);},writeDate:function writeDate(){var _this=this;setInterval(function(){var time=_this.getTime();(0,_prakma.setState)({time:time});var newTime=(0,_prakma.getState)().time;console.log(\"Time: \",newTime);},1000);},getTime:function getTime(){var today=new Date();var time=today.getHours().addZero()+':'+today.getMinutes().addZero()+':'+today.getSeconds().addZero();return time;},init:function init(){var time=this.getTime();(0,_prakma.setState)({time:time,phrase:'Prakma'});this.writePhrase();this.writeDate();}};code.init();\n\n//# sourceURL=webpack:///./src/views/state/components/main.code.js?");
+eval("exports.__esModule=true;exports.Main=void 0;__webpack_require__(/*! ../../home/components/welcome/welcome.style.sass */ \"./src/views/home/components/welcome/welcome.style.sass\");var _hooks=__webpack_require__(/*! ../../../libs/prakma/hooks */ \"./src/libs/prakma/hooks.js\");var _prakma=__webpack_require__(/*! ../../../libs/prakma/prakma */ \"./src/libs/prakma/prakma.js\");var _dom=__webpack_require__(/*! ../../../libs/utils/dom.js */ \"./src/libs/utils/dom.js\");__webpack_require__(/*! ../../../libs/extensions/html */ \"./src/libs/extensions/html.js\");var Main=function Main(){var phrase=['Prakma','is','awesome!'];var counter=0;var _useState=(0,_hooks.useState)(\"Prakma\"),title=_useState[0],setTitle=_useState[1];var handleTitle=function handleTitle(){return setTitle(function(title){counter++;if(counter>2)counter=0;return phrase[counter];});};var checkState=function checkState(){var state=(0,_prakma.getState)();(0,_dom.get)('state').insertComponent(Prakma(\"pre\",null,JSON.stringify(state)));};var start=function(){(0,_prakma.awaitDom)(\"#input\",function(input){return input.addEventListener('keyup',function(){return setTitle(function(){return input.value==\"\"?\"Prakma\":input.value;},function(){return checkState();});});});}();return Prakma(\"div\",null,Prakma(\"div\",{\"class\":\"container prakma-hook\"},Prakma(\"img\",{src:\"img/new_prakma_logo.png\",\"class\":\"fall-down logo\"}),Prakma(\"h1\",{\"class\":\"zoom-in\"},title),Prakma(\"div\",null),Prakma(\"h2\",{\"class\":\"blur-to-center prakma-hook\"},Prakma(\"button\",{\"class\":\"btn btn-default mr-2\",onClick:handleTitle},\"Update!\"),Prakma(\"button\",{\"class\":\"btn btn-default\",onClick:checkState},\"View state!\")),Prakma(\"div\",null,Prakma(\"input\",{id:\"input\",placeholder:\"Type something\",\"class\":\"form-control\",type:\"text\"}))),Prakma(\"div\",{\"class\":\"text-center pt-2\"},Prakma(\"p\",null,\"\\xA9 2021 - Leo Castellanos\")),Prakma(\"div\",{\"class\":\"container mt-0\",id:\"state\"}));};exports.Main=Main;\n\n//# sourceURL=webpack:///./src/views/hookUseState/components/main.jsx?");
 
 /***/ }),
 
-/***/ "./src/views/state/components/main.jsx":
-/*!*********************************************!*\
-  !*** ./src/views/state/components/main.jsx ***!
-  \*********************************************/
+/***/ "./src/views/hookUseState/hookUseState.app.jsx":
+/*!*****************************************************!*\
+  !*** ./src/views/hookUseState/hookUseState.app.jsx ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("var _interopRequireDefault=__webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");exports.__esModule=true;exports.Main=void 0;__webpack_require__(/*! ../../home/components/welcome/welcome.style.sass */ \"./src/views/home/components/welcome/welcome.style.sass\");var _main=_interopRequireDefault(__webpack_require__(/*! ../components/main.code */ \"./src/views/state/components/main.code.js\"));var Main=function Main(){return Prakma(\"div\",null,Prakma(\"div\",{\"class\":\"container\"},Prakma(\"img\",{src:\"img/new_prakma_logo.png\",\"class\":\"fall-down logo\"}),Prakma(\"h1\",{\"class\":\"zoom-in\"},\"##phrase##\"),Prakma(\"div\",null),Prakma(\"h2\",{\"class\":\"blur-to-center\"},\"##time##\")),Prakma(\"div\",{\"class\":\"text-center pt-2\"},Prakma(\"p\",null,\"\\xA9 2021 - Leo Castellanos\")));};exports.Main=Main;\n\n//# sourceURL=webpack:///./src/views/state/components/main.jsx?");
-
-/***/ }),
-
-/***/ "./src/views/state/state.app.jsx":
-/*!***************************************!*\
-  !*** ./src/views/state/state.app.jsx ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("var _main=__webpack_require__(/*! ./components/main */ \"./src/views/state/components/main.jsx\");var app=document.getElementById('app');app.appendChild((0,_main.Main)());\n\n//# sourceURL=webpack:///./src/views/state/state.app.jsx?");
+eval("var _main=__webpack_require__(/*! ./components/main */ \"./src/views/hookUseState/components/main.jsx\");var app=document.getElementById('app');app.appendChild((0,_main.Main)());\n\n//# sourceURL=webpack:///./src/views/hookUseState/hookUseState.app.jsx?");
 
 /***/ })
 

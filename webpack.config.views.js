@@ -6,4 +6,5 @@ module.exports =  {
     home:  view `home`,
     state: view `state`,
     request: view `request`,
+    hookUseState: view `hookUseState`,
 }

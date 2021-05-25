@@ -12,6 +12,9 @@ export const getQueryAll = document.querySelectorAll.bind(document)
 
 export const addClick = (query, fn) => get(query).addEventListener('click', fn())
 
+export const addClicks = (query, fn) => 
+    Array.from(getQueryAll(query)).forEach(input => input.addEventListener('click', (event) => {fn(event.target.dataset, event)})) 
+
 export const click = id => get(id).click()
 
 export const valueof = id => get(id).value

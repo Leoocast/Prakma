@@ -8,9 +8,13 @@ body
     display: flex
     justify-content: center
     width: 100vh
-    margin-top: 15rem
+    margin-top: 10rem
     align-items: center 
     flex-wrap: wrap
+
+    &.prakma-hook
+         margin-top: 8rem
+         flex-direction: column
     
     h1
         align-self: center
@@ -22,7 +26,8 @@ body
         margin-top: 1.7rem
 
 .logo
-    margin-bottom: 20px
+    margin-bottom: 12px
+    width: 12rem
 
 .fall-down
     animation: fall-down
@@ -32,3 +37,22 @@ body
 
 .blur-to-center 
     animation: blur-to-center
+
+.prakma-hook
+    button
+        background-color: white
+        border: none
+        transition: all 300ms
+
+        &:hover
+            background-image: linear-gradient(36deg,#3A2061 20%,#CD087F 92%)!important
+            border: none
+            color: white
+
+        &:active
+            box-shadow: none
+            transform: scale(0.8) 
+
+        &:focus 
+            outline:0
+            box-shadow: none

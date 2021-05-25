@@ -4,7 +4,7 @@ import code from "../components/main.code"
 export const Main = () =>(
     <div>
     <div class="container">
-    <img src="img/prakma_logo.png" class="fall-down logo"></img>
+    <img src="img/new_prakma_logo.png" class="fall-down logo"></img>
         <h1 class="zoom-in">
             ##phrase##
         </h1>

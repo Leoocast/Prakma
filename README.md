@@ -1,6 +1,6 @@
 <p></p>
 <p align="center">
-  <img src="https://github.com/Leoocast/Prakma/blob/master/dist/img/prakma.png?raw=true" alt="Logo"/>
+  <img src="https://github.com/Leoocast/Prakma/blob/master/dist/img/new_prakma_logo.png?raw=true" alt="Logo"/>
 </p>
 <h1 align="center">Prakma.js</h1>
 <h3 align="center">Made with  ❤️ to everyone who loves JSX</h3>

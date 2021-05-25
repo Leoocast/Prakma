@@ -1,5 +1,9 @@
 import { setState, getState } from "../../../libs/prakma/prakma";
 
+Number.prototype.addZero = function(){
+    return this > 9 ?  this : "0" + this
+}
+
 const code = {
     writePhrase(){
         const phrase = ['Prakma', 'is', 'awesome!']
@@ -25,7 +29,8 @@ const code = {
     },
     getTime(){
         const today = new Date()
-        const time = today.getHours() + ':' + today.getMinutes() + ':' + (today.getSeconds() > 9 ? today.getSeconds() : '0' + today.getSeconds())
+
+        const time = today.getHours().addZero() + ':' + today.getMinutes().addZero() + ':' + today.getSeconds().addZero()
 
         return time
     },

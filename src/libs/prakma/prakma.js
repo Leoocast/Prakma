@@ -24,6 +24,8 @@ const code = {
     //#endregion 
 }
 
+export const codePublic = code
+
 export const awaitDom = (element, callback) => { 
 
     let tries = 0
@@ -36,7 +38,7 @@ export const awaitDom = (element, callback) => {
             if(el != null){
                 clearInterval(interval)
 
-                return await callback()
+                return await callback(el)
             } 
     
             if(tries === 10){
