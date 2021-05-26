@@ -24,6 +24,22 @@
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#installation)
+## ➤ What is?
+Prakma is a framework to make applications using JSX. The main purpose is separate logic from components, focusing on writing pure components.
+
+With prakma you'll always have two files.
+```javascript
+📑 nameComponent.component.jsx
+📑 nameComponent.code.js
+```
+Where 'code' is the logic behind that component.
+
+Additional to that, comes with a global state where you can access it in every view!, which makes easy to share data between componentes. 
+When the state change, the HTML change too and just the div where the variable is, don't redraw everything.
+
+Prakma also has a Fetch library to make requests, and has a lot of methods (updating constantly) to help you to do things in the DOM.
+
+Aditionally, comes with an easy to handle file structure to make your apps, so, you just install and start developing, forget of wasting time thinking how to organize your folders and files, Prakma knows you how to do!
 
 ## ➤ Installation
 
