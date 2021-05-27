@@ -2,8 +2,8 @@
 <p align="center">
   <img width="230" src="https://github.com/Leoocast/Prakma/blob/master/dist/img/new_prakma_logo.png?raw=true" alt="Logo"/>
 </p>
-<h1 align="center">Prakma.js</h1>
-<h3 align="center">Made with  ❤️ to everyone who loves JSX</h3>
+<h1 align="center">Prakma</h1>
+<h3 align="center">Keep it simple</h3>
 <p align="center">
 <img alt="Downloads" src="https://img.shields.io/npm/dw/prakma?label=Downloads" height="20"/>
 <img alt="Downloads" src="https://img.shields.io/npm/l/prakma?color=informational&label=License" height="20"/>
@@ -17,11 +17,10 @@
 </p>
 
 
-* **Simple**: You don't have to worry about compile, the webpack preloaded config does it for you.
-* **Powerful**: Supports state, import statement, async functions, children inside components, sass, and more!.
+* **Bridge**: You feel uncomfortable with React? Prakma can help you with that.
+* **Simple**: Install and start developing.
+* **Powerful**: Supports state, async functions, children inside components, sass, and more!.
 * **Awesome**: Comes with an easy to handle file structure to make your apps.
-<!-- * **Bridge**: You feel uncomfortable with React? Prakma can help you to get used with the component logic. -->
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#installation)
 ## ➤ What is?
