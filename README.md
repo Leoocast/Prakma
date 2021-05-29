@@ -24,7 +24,7 @@
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#installation)
 ## ➤ What is?
-Prakma is a framework to make applications using JSX. The main purpose is separate logic from components, focusing on writing pure components.
+Prakma is a framework to make applications using JSX. The main purpose is separate logic from components, focusing on writing functional components.
 
 With prakma you'll always have two files.
 ```javascript
